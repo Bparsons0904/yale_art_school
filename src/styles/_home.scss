@@ -1,0 +1,73 @@
+#home {
+  margin: 0 auto;
+  width: 100vw;
+  height: 100vh;
+  overflow: visible;
+  background-color: rgba(0, 0, 0, 0.35);
+  
+  #cover {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    // background-color: #fff;
+    img {
+      //   position: absolute;
+      //   top: -9999px;
+      //   bottom: -9999px;
+      //   left: -9999px;
+      //   right: -9999px;
+      //   margin: auto;
+      position: absolute;
+      width: auto;
+      height: 100vh;
+      left: 50%;
+      top: 50%;
+      transform: translateY(-50%) translateX(-50%) scale(1.25);
+      
+    //   opacity: .3;
+    }
+  }
+  #logo {
+      position: absolute;
+      top: 50px;
+      right: 0px;
+      margin: 1.5em;
+      height: 100px;
+      z-index: 0;
+      img {
+          width: auto;
+          height: 100%;
+      };
+  }
+  #title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      transform: translateY(-50%) translateX(-50%);
+    //   background-color: rgba(0, 0, 0, 0.25);
+    display: grid;
+    grid-template-areas: 
+        'title title'
+        'events-btn enroll-btn' ;
+      h1 {
+          color: $color-light;
+          font-size: 4em;
+          text-align: center;
+          
+          padding: .5em;
+          grid-area: title;
+      }
+      .button:nth-of-type(1) {
+          margin: auto;
+          grid-area: events-btn;
+      }
+      .button:nth-of-type(2) {
+          grid-area: enroll-btn;
+          margin: auto;
+      }
+  }
+}

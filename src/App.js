@@ -9,6 +9,8 @@ import Home from "./pages/Home";
 import Chat from "./pages/Chat";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import Header from './components/Header';
+import Footer from './components/Footer';
 import { auth } from "./services/firebase";
 import './styles/styles.min.css';
 
@@ -76,6 +78,7 @@ class App extends Component {
       </div>
     ) : (
         <Router>
+          <Header></Header>
           <Switch>
             <Route exact path="/" component={Home} />
             <PrivateRoute
@@ -94,6 +97,7 @@ class App extends Component {
               component={Login}
             />
           </Switch>
+          {/* <Footer></Footer> */}
         </Router>
       );
   }

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+
 import { Link } from "react-router-dom";
 import { signin, signInWithGoogle, signInWithGitHub } from "../helpers/auth";
 
@@ -52,21 +51,13 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div className="container">
+      <section className="container">
         <form
-          className="mt-5 py-5 px-5"
+          className=""
           autoComplete="off"
           onSubmit={this.handleSubmit}
         >
-          <h1>
-            Login to
-            <Link className="title ml-2" to="/">
-              Chatty
-            </Link>
-          </h1>
-          <p className="lead">
-            Fill in the form below to login to your account.
-          </p>
+          <h1>Student and Faculty Login</h1>
           <div className="form-group">
             <input
               className="form-control"
@@ -106,7 +97,7 @@ export default class Login extends Component {
           </p>
         </form>
 
-      </div>
+      </section>
     );
   }
 }

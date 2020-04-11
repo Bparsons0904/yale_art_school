@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 
-$color-primary: blue;
-$color-white: #fcfcfc;
-$color-black: #313131;
+body {
+    font-family: Poppins;
+}
+
+$color-primary: #8e87f1;
+$color-light: #F8F8F7;
+$color-secondary-light: #1B5E90;
+$color-secondary-dark: #2d487c;
+$color-accent-light: #5FC74C;
+$color-accent-dark: #786BBB;

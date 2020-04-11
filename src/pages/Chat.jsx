@@ -1,6 +1,5 @@
 
 import React, { Component } from "react";
-import Header from "../components/Header";
 import { auth } from "../services/firebase";
 import { db } from "../services/firebase";
 
@@ -71,8 +70,6 @@ export default class Chat extends Component {
   render() {
     return (
       <div>
-        <Header />
-
         <div className="chat-area" ref={this.myRef}>
           {/* loading indicator */}
           {this.state.loadingChats ? <div className="spinner-border text-success" role="status">

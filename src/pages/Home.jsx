@@ -1,29 +1,39 @@
-
-import React, { Component } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import { Link } from 'react-router-dom';
-
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import "../styles/styles.min.css";
+import backdrop from "../assets/yale_gallery_backdrop.jpg";
+// import logo from "../assets/Yale_School_of_Art.png";
 
 export default class HomePage extends Component {
   render() {
     return (
-      <div className="home">
-        <Header></Header>
-        <section>
-          <div className="jumbotron jumbotron-fluid py-5">
-            <div className="container text-center py-5">
-              <h1 className="display-4">Welcome to Chatty</h1>
-              <p className="lead">A great place to share your thoughts with friends</p>
-              <div className="mt-4">
-                <Link className="btn btn-primary px-5 mr-3" to="/signup">Create New Account</Link>
-                <Link className="btn px-5" to="/login">Login to Your Account</Link>
-              </div>
-            </div>
-          </div>
-        </section>
-        <Footer></Footer>
-      </div>
-    )
+      <section id="home">
+        <figure id="cover">
+          <img src={backdrop} alt="" />
+        </figure>
+        {/* <figure id="logo">
+          <img src={logo} alt=""/>
+        </figure> */}
+        <div id="title">
+          <h1>Yale School of Art</h1>
+          <div className="button btn-primary">Events</div>
+          <div className="button btn-cta">Enroll</div>
+        </div>
+      </section>
+      // <div className="home">
+      //   <section>
+      //     <div className="jumbotron jumbotron-fluid py-5">
+      //       <div className="container text-center py-5">
+      //         <h1 className="display-4">Welcome to Chatty</h1>
+      //         <p className="lead">A great place to share your thoughts with friends</p>
+      //         <div className="mt-4">
+      //           <Link className="btn btn-primary px-5 mr-3" to="/signup">Create New Account</Link>
+      //           <Link className="btn px-5" to="/login">Login to Your Account</Link>
+      //         </div>
+      //       </div>
+      //     </div>
+      //   </section>
+      // </div>
+    );
   }
 }
