@@ -15,9 +15,7 @@ a {
 
 body {
   width: 100vw;
-  overflow: hidden;
-
-  margin-top: 3em;
+  margin-top: 50px;
 }
 
 .container {
@@ -25,7 +23,7 @@ body {
 }
 
 .button {
-  width: 4em;
+  width: 5em;
   height: 2em;
   border-radius: 0.5em;
   text-align: center;
@@ -39,7 +37,7 @@ body {
 .btn-primary {
   @extend .button;
   background-color: $color-accent-dark;
-  border-color: $color-accent-dark;
+  border-color: $color-primary;
 }
 
 .btn-secondary-light {
@@ -54,11 +52,27 @@ body {
   border-color: $color-accent-light;
 }
 
+i {
+  padding-right: 1em;
+}
+
 .card {
   background-color: $color-light;
-  padding: 2em;
-  margin: 2em;
+  margin: .5em;
   box-shadow: 7px 7px 14px 2px rgba(0,0,0,0.3);
+}
+
+.inner-card {
+  background-color: $color-secondary-light;
+  padding: 1em .75em;
+  transform: translateY(-2.5em);
+  border-radius: 0.5em;
+  margin-bottom: -2em;
+
+  h1 {
+    color: $color-light;
+    text-align: center;
+  }
 }
 
 input,
@@ -75,6 +89,8 @@ input {
   margin: 1em 0;
   transition: .5s;
 }
+
+
 // input:focus {
 //   outline: none !important;
 //   background-color: $color-light;

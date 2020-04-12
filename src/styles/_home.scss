@@ -2,9 +2,10 @@
   margin: 0 auto;
   width: 100vw;
   height: 100vh;
-  overflow: visible;
   background-color: rgba(0, 0, 0, 0.35);
-  
+  position: fixed;
+  top: 0;
+  left: 0;
   #cover {
     position: relative;
     overflow: hidden;
@@ -36,6 +37,7 @@
       position: absolute;
       top: 50%;
       transform: translate(-50%, -50%);
+      overflow: hidden;
       }
   }
   #logo {
@@ -75,18 +77,22 @@
       .button:nth-of-type(1) {
           margin: auto;
           grid-area: events-btn;
+          background-color: rgba(0, 0, 0, 0);
+          border-width: 3px;
       }
       .button:nth-of-type(2) {
           grid-area: enroll-btn;
           margin: auto;
+          background-color: rgba(0, 0, 0, 0);
+          border-width: 3px;
       }
       .button:nth-of-type(1):hover {
-          background-color: $color-light;
-          color: $color-primary;
+          background-color: $color-primary;
+          // color: $color-primary;
       }
       .button:nth-of-type(2):hover {
-        background-color: $color-light;
-        color: $color-accent-light;
+        background-color: $color-accent-light;
+        // color: $color-accent-light;
       }
   }
 }

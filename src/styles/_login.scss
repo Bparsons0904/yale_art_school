@@ -3,18 +3,7 @@
     margin: 3em auto;
     max-width: 250px;
     padding: 1em;
-    .inner-card {
-      background-color: $color-secondary-light;
-      padding: 1.5em 1em;
-      transform: translateY(-3em);
-      border-radius: 0.5em;
-      margin-bottom: -2em;
-
-      h1 {
-        color: $color-light;
-        text-align: center;
-      }
-    }
+    
 
     input {
       color: $color-secondary-dark;
@@ -38,9 +27,7 @@
       margin: 1em 0;
       box-shadow: 3px 3px 8px #b1b1b1,
               -3px -3px 8px #ffffff;
-      i {
-        padding-right: 1em;
-      }
+      
     }
     .button:hover {
         box-shadow: unset;

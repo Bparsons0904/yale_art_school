@@ -8,7 +8,7 @@ let loggedInDisplay;
 
 auth().onAuthStateChanged((user) => {
   if (user) {
-    loggedInDisplay = <li onClick={() => auth().signOut()}>Logout</li>;
+    loggedInDisplay = <div><li onClick={() => auth().signOut()}>Logout</li><li><Link to="/chat">Chat</Link></li></div>;
   } else {
     loggedInDisplay = <li><Link to="login">Login</Link></li>;
   }
