@@ -29,6 +29,14 @@
       
     //   opacity: .3;
     }
+    video {
+      left: 50%;
+      min-height: 100%;
+      min-width: 100%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      }
   }
   #logo {
       position: absolute;
@@ -61,6 +69,9 @@
           padding: .5em;
           grid-area: title;
       }
+      a {
+        color: $color-light;
+      }
       .button:nth-of-type(1) {
           margin: auto;
           grid-area: events-btn;
@@ -69,5 +80,14 @@
           grid-area: enroll-btn;
           margin: auto;
       }
+      .button:nth-of-type(1):hover {
+          background-color: $color-light;
+          color: $color-primary;
+      }
+      .button:nth-of-type(2):hover {
+        background-color: $color-light;
+        color: $color-accent-light;
+      }
   }
 }
+

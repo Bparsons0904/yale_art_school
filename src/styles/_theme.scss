@@ -1,12 +1,21 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+
+$color-primary: #7c74e9;
+$color-light: #f8f8f7;
+$color-secondary-light: #1a77be;
+$color-secondary-dark: #2d487c;
+$color-accent-light: #5fc74c;
+$color-accent-dark: #786bbb;
 
 body {
-    font-family: Poppins;
+  font-family: Poppins;
+  background-color: $color-secondary-dark;
 }
 
-$color-primary: #8e87f1;
-$color-light: #F8F8F7;
-$color-secondary-light: #1B5E90;
-$color-secondary-dark: #2d487c;
-$color-accent-light: #5FC74C;
-$color-accent-dark: #786BBB;
+
+// $color-primary: #8e87f1;
+// $color-light: #f8f8f7;
+// $color-secondary-light: #1b5e90;
+// $color-secondary-dark: #2d487c;
+// $color-accent-light: #5fc74c;
+// $color-accent-dark: #786bbb;

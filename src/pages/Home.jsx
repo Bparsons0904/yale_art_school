@@ -1,23 +1,25 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../styles/styles.min.css";
-import backdrop from "../assets/yale_gallery_backdrop.jpg";
+// import backdrop from "../assets/yale_gallery_backdrop.jpg";
 // import logo from "../assets/Yale_School_of_Art.png";
+import video_backdrop_small from "../assets/cover_small.mp4"
 
 export default class HomePage extends Component {
   render() {
     return (
       <section id="home">
         <figure id="cover">
-          <img src={backdrop} alt="" />
+          {/* <img src={backdrop} alt="" /> */}
+          <video src={video_backdrop_small} autoPlay muted loop></video>
         </figure>
         {/* <figure id="logo">
           <img src={logo} alt=""/>
         </figure> */}
         <div id="title">
           <h1>Yale School of Art</h1>
-          <div className="button btn-primary">Events</div>
-          <div className="button btn-cta">Enroll</div>
+          <Link className="btn-primary" to="/events">Events</Link>
+          <Link className="btn-accent-light" to="/login">Login</Link>
         </div>
       </section>
       // <div className="home">

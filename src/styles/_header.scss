@@ -88,8 +88,9 @@ header {
       right: 0;
       z-index: 2;
       cursor: pointer;
-      width: 40px;
-      height: 40px;
+      width: 60px;
+      height: 60px;
+      margin-top: -10px;
       opacity: 0;
     }
     .hamburger {
@@ -169,7 +170,7 @@ header {
     align-items: center;
     justify-content: center;
     > div {
-      background: $color-accent-dark;
+      background: $color-secondary-dark;
       border-radius: 50%;
       width: 200vw;
       height: 200vw;
@@ -194,7 +195,6 @@ header {
             padding: 1rem;
             text-transform: uppercase;
             a {
-              text-decoration: none;
               transition: color 0.4s ease;
               color: $color-light;
             }

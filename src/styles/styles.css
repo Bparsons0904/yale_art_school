@@ -1,18 +1,27 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 body {
   font-family: Poppins;
+  background-color: #2d487c;
 }
 
-body, h1, h2, h3, h4, p {
+body,
+h1,
+h2,
+h3,
+h4,
+p {
   margin: 0;
   padding: 0;
-  color: #F8F8F7;
+  color: #f8f8f7;
+}
+
+a {
+  text-decoration: none;
 }
 
 body {
   width: 100vw;
   overflow: hidden;
-  background-color: #1B5E90;
   margin-top: 3em;
 }
 
@@ -20,33 +29,62 @@ body {
   padding: 1em;
 }
 
-.button {
+.button, .btn-primary, .btn-secondary-light, .btn-accent-light {
   width: 4em;
   height: 2em;
-  border-radius: .5em;
+  border-radius: 0.5em;
   text-align: center;
   line-height: 2em;
-  padding: .3em 2em;
-  margin: .5em;
-  text-transform: uppercase;
-  letter-spacing: .1em;
+  padding: 0.2em 1.5em;
   font-weight: bold;
+  border: solid 2px;
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 
 .btn-primary {
-  background-color: #786BBB;
-  text-transform: uppercase;
+  background-color: #786bbb;
+  border-color: #786bbb;
 }
 
-.btn-cta {
-  background-color: #5FC74C;
+.btn-secondary-light {
+  background-color: #1a77be;
+  border-color: #1a77be;
+}
+
+.btn-accent-light {
+  background-color: #5fc74c;
+  border-color: #5fc74c;
+}
+
+.card {
+  background-color: #f8f8f7;
+  padding: 2em;
+  margin: 2em;
+  -webkit-box-shadow: 7px 7px 14px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 7px 7px 14px 2px rgba(0, 0, 0, 0.3);
+}
+
+input,
+input:focus,
+input:focus-within {
+  border: none;
+  outline: none;
+  background-color: #f8f8f7;
+}
+
+input {
+  border-bottom: solid 1px #786bbb;
+  margin: 1em 0;
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 
 header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #8e87f1;
+  background-color: #7c74e9;
   width: 100vw;
   position: fixed;
   top: 0;
@@ -76,8 +114,9 @@ header .menu-wrap .toggler {
   right: 0;
   z-index: 2;
   cursor: pointer;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
+  margin-top: -10px;
   opacity: 0;
 }
 
@@ -109,7 +148,7 @@ header .menu-wrap .hamburger > div {
           flex: none;
   width: 100%;
   height: 2px;
-  background: #F8F8F7;
+  background: #f8f8f7;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -192,7 +231,7 @@ header .menu {
 }
 
 header .menu > div {
-  background: #786BBB;
+  background: #2d487c;
   border-radius: 50%;
   width: 200vw;
   height: 200vw;
@@ -236,18 +275,17 @@ header .menu > div > div ul li {
 }
 
 header .menu > div > div ul li a {
-  text-decoration: none;
   -webkit-transition: color 0.4s ease;
   transition: color 0.4s ease;
-  color: #F8F8F7;
+  color: #f8f8f7;
 }
 
 header .menu > div > div ul li a:hover {
-  color: #5FC74C;
+  color: #5fc74c;
 }
 
 header .menu > div > div ul li .active {
-  border-bottom: solid 3px #5FC74C;
+  border-bottom: solid 3px #5fc74c;
 }
 
 #home {
@@ -277,6 +315,16 @@ header .menu > div > div ul li .active {
           transform: translateY(-50%) translateX(-50%) scale(1.25);
 }
 
+#home #cover video {
+  left: 50%;
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
 #home #logo {
   position: absolute;
   top: 50px;
@@ -304,7 +352,7 @@ header .menu > div > div ul li .active {
 }
 
 #home #title h1 {
-  color: #F8F8F7;
+  color: #f8f8f7;
   font-size: 4em;
   text-align: center;
   padding: .5em;
@@ -314,16 +362,108 @@ header .menu > div > div ul li .active {
   grid-area: title;
 }
 
-#home #title .button:nth-of-type(1) {
+#home #title a {
+  color: #f8f8f7;
+}
+
+#home #title .button:nth-of-type(1), #home #title .btn-primary:nth-of-type(1), #home #title .btn-secondary-light:nth-of-type(1), #home #title .btn-accent-light:nth-of-type(1) {
   margin: auto;
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   grid-area: events-btn;
 }
 
-#home #title .button:nth-of-type(2) {
+#home #title .button:nth-of-type(2), #home #title .btn-primary:nth-of-type(2), #home #title .btn-secondary-light:nth-of-type(2), #home #title .btn-accent-light:nth-of-type(2) {
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: enroll-btn;
   margin: auto;
+}
+
+#home #title .button:nth-of-type(1):hover, #home #title .btn-primary:nth-of-type(1):hover, #home #title .btn-secondary-light:nth-of-type(1):hover, #home #title .btn-accent-light:nth-of-type(1):hover {
+  background-color: #f8f8f7;
+  color: #7c74e9;
+}
+
+#home #title .button:nth-of-type(2):hover, #home #title .btn-primary:nth-of-type(2):hover, #home #title .btn-secondary-light:nth-of-type(2):hover, #home #title .btn-accent-light:nth-of-type(2):hover {
+  background-color: #f8f8f7;
+  color: #5fc74c;
+}
+
+#login .card {
+  margin: 3em auto;
+  max-width: 250px;
+  padding: 1em;
+}
+
+#login .card .inner-card {
+  background-color: #1a77be;
+  padding: 1.5em 1em;
+  -webkit-transform: translateY(-3em);
+          transform: translateY(-3em);
+  border-radius: 0.5em;
+  margin-bottom: -2em;
+}
+
+#login .card .inner-card h1 {
+  color: #f8f8f7;
+  text-align: center;
+}
+
+#login .card input {
+  color: #2d487c;
+  font-size: 1em;
+  border-color: #786bbb;
+  border: none;
+  padding: 0.5em 0;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 25px;
+  -webkit-box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+          box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+}
+
+#login .card input::-webkit-input-placeholder {
+  padding: 0 1em;
+}
+
+#login .card input:-ms-input-placeholder {
+  padding: 0 1em;
+}
+
+#login .card input::-ms-input-placeholder {
+  padding: 0 1em;
+}
+
+#login .card input::placeholder {
+  padding: 0 1em;
+}
+
+#login .card .button, #login .card .btn-primary, #login .card .btn-secondary-light, #login .card .btn-accent-light {
+  width: 100%;
+  padding: 0.15em 0;
+  margin: 1em 0;
+  -webkit-box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+          box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+}
+
+#login .card .button i, #login .card .btn-primary i, #login .card .btn-secondary-light i, #login .card .btn-accent-light i {
+  padding-right: 1em;
+}
+
+#login .card .button:hover, #login .card .btn-primary:hover, #login .card .btn-secondary-light:hover, #login .card .btn-accent-light:hover {
+  -webkit-box-shadow: unset;
+          box-shadow: unset;
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+}
+
+#login .card #register {
+  font-size: 0.75em;
+  color: #2d487c;
+}
+
+#login .card #register a {
+  -webkit-text-decoration: solid;
+          text-decoration: solid;
 }

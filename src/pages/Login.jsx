@@ -9,7 +9,7 @@ export default class Login extends Component {
     this.state = {
       error: null,
       email: "",
-      password: ""
+      password: "",
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,7 +19,7 @@ export default class Login extends Component {
 
   handleChange(event) {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   }
 
@@ -51,52 +51,64 @@ export default class Login extends Component {
 
   render() {
     return (
-      <section className="container">
-        <form
-          className=""
-          autoComplete="off"
-          onSubmit={this.handleSubmit}
-        >
-          <h1>Student and Faculty Login</h1>
-          <div className="form-group">
-            <input
-              className="form-control"
-              placeholder="Email"
-              name="email"
-              type="email"
-              onChange={this.handleChange}
-              value={this.state.email}
-            />
-          </div>
-          <div className="form-group">
-            <input
-              className="form-control"
-              placeholder="Password"
-              name="password"
-              onChange={this.handleChange}
-              value={this.state.password}
-              type="password"
-            />
-          </div>
-          <div className="form-group">
-            {this.state.error ? (
-              <p className="text-danger">{this.state.error}</p>
-            ) : null}
-            <button className="btn btn-primary px-5" type="submit">Login</button>
-          </div>
-          <p>You can also log in with any of these services</p>
-          <button className="btn btn-danger mr-2" type="button" onClick={this.googleSignIn}>
-            Sign in with Google
-          </button>
-          <button className="btn btn-secondary" type="button" onClick={this.githubSignIn}>
-            Sign in with GitHub
-          </button>
-          <hr />
-          <p>
-            Don't have an account? <Link to="/signup">Sign up</Link>
-          </p>
-        </form>
+      <section className="container" id="login">
+        <div className="card">
+          <form className="" autoComplete="off" onSubmit={this.handleSubmit}>
+            <div className="inner-card">
+              <h1>Student and Faculty Login</h1>
+            </div>
+            <div className="input-container">
+              <div className="email">
+                <input
+                  className=""
+                  placeholder="Email"
+                  name="email"
+                  type="email"
+                  onChange={this.handleChange}
+                  value={this.state.email}
+                />
+              </div>
+              <div className="password">
+                <input
+                  className=""
+                  placeholder="Password"
+                  name="password"
+                  onChange={this.handleChange}
+                  value={this.state.password}
+                  type="password"
+                />
+              </div>
+            </div>
 
+            <div className="">
+              {this.state.error ? (
+                <p className="text-danger">{this.state.error}</p>
+              ) : null}
+              <div className="button btn-accent-light" type="submit">
+                <i className="far fa-envelope"></i>Email Login
+              </div>
+            </div>
+            {/* <p>You can also log in with any of these services</p> */}
+            <div
+              className="btn-secondary-light"
+              type="button"
+              onClick={this.googleSignIn}
+            >
+              <i class="fab fa-google"></i>Google Login
+            </div>
+            <div
+              className="btn-secondary-light"
+              type="button"
+              onClick={this.githubSignIn}
+            >
+              <i class="fab fa-github"></i>GitHub Login
+            </div>
+            <hr />
+            <p id="register">
+              Don't have an account? <Link to="/signup">Sign up</Link>
+            </p>
+          </form>
+        </div>
       </section>
     );
   }

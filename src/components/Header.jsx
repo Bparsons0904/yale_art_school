@@ -10,14 +10,14 @@ auth().onAuthStateChanged((user) => {
   if (user) {
     loggedInDisplay = <li onClick={() => auth().signOut()}>Logout</li>;
   } else {
-    loggedInDisplay = <Link to="login">Login</Link>;
+    loggedInDisplay = <li><Link to="login">Login</Link></li>;
   }
 });
 
 function Header() {
   return (
     <header>
-      <h1>Yale School of Art</h1>
+      <Link to="/"><h1>Yale School of Art</h1></Link>
       <nav className="menu-wrap">
         <input type="checkbox" className="toggler"></input>
         <div className="hamburger">
@@ -32,7 +32,7 @@ function Header() {
                     Home
                   </Link>
                 </li>
-                <li>{loggedInDisplay}</li>
+                {loggedInDisplay}
                 <li>
                   <Link className="active" to="/news">
                     News
