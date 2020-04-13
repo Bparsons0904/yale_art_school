@@ -16,28 +16,56 @@ export default class Chat extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.myRef = React.createRef();
-  }
+  } 
 
   async componentDidMount() {
     this.setState({ readError: null, loadingChats: true });
     const chatArea = this.myRef.current;
     try {
-      db.ref("chats").on("value", (snapshot) => {
+      db.collection("chats").orderBy("timestamp").onSnapshot((querySnapshot) => {
         let chats = [];
-        snapshot.forEach((snap) => {
-          chats.push(snap.val());
-        });
-        chats.sort(function (a, b) {
-          return a.timestamp - b.timestamp;
+        querySnapshot.forEach((doc) => {
+          chats.push(doc.data());
+            console.log(`${doc.id} => ${doc.data()}`);
         });
         this.setState({ chats });
         chatArea.scrollBy(0, chatArea.scrollHeight);
         this.setState({ loadingChats: false });
-      });
+    });
+      // db.ref("chats").on("value", (snapshot) => {
+      //   let chats = [];
+      //   snapshot.forEach((snap) => {
+      //     chats.push(snap.val());
+      //   });
+      //   chats.sort(function (a, b) {
+      //     return a.timestamp - b.timestamp;
+      //   });
+        
+      // });
     } catch (error) {
       this.setState({ readError: error.message, loadingChats: false });
     }
   }
+  // async componentDidMount() {
+  //   this.setState({ readError: null, loadingChats: true });
+  //   const chatArea = this.myRef.current;
+  //   try {
+  //     db.ref("chats").on("value", (snapshot) => {
+  //       let chats = [];
+  //       snapshot.forEach((snap) => {
+  //         chats.push(snap.val());
+  //       });
+  //       chats.sort(function (a, b) {
+  //         return a.timestamp - b.timestamp;
+  //       });
+  //       this.setState({ chats });
+  //       chatArea.scrollBy(0, chatArea.scrollHeight);
+  //       this.setState({ loadingChats: false });
+  //     });
+  //   } catch (error) {
+  //     this.setState({ readError: error.message, loadingChats: false });
+  //   }
+  // }
 
   handleChange(event) {
     this.setState({
@@ -50,11 +78,17 @@ export default class Chat extends Component {
     this.setState({ writeError: null });
     const chatArea = this.myRef.current;
     try {
-      await db.ref("chats").push({
+      await db.collection("chats").add({
         content: this.state.content,
         timestamp: Date.now(),
         uid: this.state.user.uid,
-      });
+        name: this.state.user.displayName ? this.state.user.displayName : this.state.user.email
+    })
+      // await db.ref("chats").push({
+      //   content: this.state.content,
+      //   timestamp: Date.now(),
+      //   uid: this.state.user.uid,
+      // });
       this.setState({ content: "" });
       chatArea.scrollBy(0, chatArea.scrollHeight);
     } catch (error) {
@@ -73,7 +107,8 @@ export default class Chat extends Component {
   render() {
     return (
       <section id="chat" className="container">
-        <div className="chat-area" ref={this.myRef}>
+
+        <div className="chat-area" >
           {/* loading indicator */}
           {this.state.loadingChats ? (
             <div className="" role="status">
@@ -95,13 +130,14 @@ export default class Chat extends Component {
                 }
                 key={chat.timestamp}
               >
+                <p className="chat-name">{chat.name}</p>
                 <p className="chat-text">{chat.content}</p>
                 <p className="chat-time">{this.formatTime(chat.timestamp)}</p>
               </div>
             );
           })}
         </div>
-        <form onSubmit={this.handleSubmit} className="card">
+        <form onSubmit={this.handleSubmit} className="card" id="addMessage">
           <div className="inner-card">
             <h1>Add Comment</h1>
           </div>
@@ -110,17 +146,17 @@ export default class Chat extends Component {
               className=""
               name="content"
               onChange={this.handleChange}
-              value={this.state.content}
+              value={this.state.content} ref={this.myRef}
             ></textarea>
             {this.state.error ? (
               <p className="text-danger">{this.state.error}</p>
             ) : null}
-            <div type="submit" className="btn-accent-light">
+            <div type="submit" className="btn-accent-light" onClick={this.handleSubmit}>
               <i className="far fa-paper-plane"></i>Send
             </div>
             <div className="posting">
               Posting as:{" "}
-              <strong className="text-info">{this.state.user.email}</strong>
+              <strong className="text-info">{this.state.user.displayName ? this.state.user.displayName : this.state.user.email}</strong>
             </div>
           </div>
         </form>

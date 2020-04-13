@@ -100,7 +100,7 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #7c74e9;
+  background-color: #f8f8f7;
   width: 100vw;
   height: 50px;
   position: fixed;
@@ -110,13 +110,30 @@ header {
       -ms-flex-pack: justify;
           justify-content: space-between;
   z-index: 1;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-header h1 {
-  font-size: 1.2em;
-  padding: 0.5em 1em;
+header #title-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header #title-group img {
+  height: 2em;
+  padding: 0.5em 0 0.5em 1em;
+  width: auto;
+  display: none;
+}
+
+header #title-group h1 {
+  padding-left: 1em;
+  font-size: 1.4em;
+  line-height: 50px;
   text-transform: uppercase;
-  letter-spacing: .1em;
+  color: #7c74e9;
+  font-weight: 800;
 }
 
 header .menu-wrap {
@@ -144,7 +161,7 @@ header .menu-wrap .hamburger {
   z-index: 1;
   width: 30px;
   height: 30px;
-  padding: .6em 1em;
+  padding: 0.6em 1em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -154,8 +171,8 @@ header .menu-wrap .hamburger {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-transition-delay: .4s;
-          transition-delay: .4s;
+  -webkit-transition-delay: 0.4s;
+          transition-delay: 0.4s;
 }
 
 header .menu-wrap .hamburger > div {
@@ -164,8 +181,8 @@ header .menu-wrap .hamburger > div {
       -ms-flex: none;
           flex: none;
   width: 100%;
-  height: 2px;
-  background: #f8f8f7;
+  height: 3px;
+  background-color: #7c74e9;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -186,8 +203,9 @@ header .menu-wrap .hamburger > div::after {
   z-index: 1;
   top: -10px;
   width: 100%;
-  height: 2px;
+  height: 3px;
   background: inherit;
+  background-color: #7c74e9;
 }
 
 header .menu-wrap .hamburger > div::after {
@@ -197,6 +215,7 @@ header .menu-wrap .hamburger > div::after {
 header .menu-wrap .toggler:checked + .hamburger > div {
   -webkit-transform: rotate(135deg);
           transform: rotate(135deg);
+  background-color: #f8f8f7;
 }
 
 header .menu-wrap .toggler:checked + .hamburger > div:before,
@@ -204,6 +223,7 @@ header .menu-wrap .toggler:checked + .hamburger > div:after {
   top: 0;
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
+  background-color: #f8f8f7;
 }
 
 header .menu-wrap .toggler:checked ~ .menu {
@@ -286,23 +306,51 @@ header .menu > div > div ul {
 
 header .menu > div > div ul li {
   list-style: none;
-  font-size: 1.5rem;
-  padding: 1rem;
+  font-size: 1.25em;
+  padding: 0.5em;
   text-transform: uppercase;
 }
 
 header .menu > div > div ul li a {
-  -webkit-transition: color 0.4s ease;
-  transition: color 0.4s ease;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   color: #f8f8f7;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+header .menu > div > div ul li a::before {
+  position: absolute;
+  content: attr(data-content);
+  /* Prints the value of the attribute */
+  top: 0;
+  left: 0;
+  color: white;
+  overflow: hidden;
+  height: 100%;
+  width: 0;
+  -webkit-transition: width 0.5s ease;
+  transition: width 0.5s ease;
 }
 
 header .menu > div > div ul li a:hover {
   color: #5fc74c;
 }
 
-header .menu > div > div ul li .active {
-  border-bottom: solid 3px #5fc74c;
+header .menu > div > div ul li .active::after {
+  content: "";
+  display: block;
+  margin: auto;
+  height: 3px;
+  width: 100%;
+  background: #5fc74c;
+  -webkit-transition: width 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out;
+}
+
+header .menu > div > div ul li .active:hover::after {
+  width: 0;
 }
 
 #home {
@@ -419,11 +467,13 @@ header .menu > div > div ul li .active {
 }
 
 #login .card input {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   color: #2d487c;
   font-size: 1em;
   border-color: #786bbb;
   border: none;
-  padding: 0.5em 0;
+  padding: 0.5em 1em;
   width: 100%;
   max-width: 100%;
   border-radius: 25px;
@@ -432,27 +482,31 @@ header .menu > div > div ul li .active {
 }
 
 #login .card input::-webkit-input-placeholder {
-  padding: 0 1em;
+  padding: 0 0;
 }
 
 #login .card input:-ms-input-placeholder {
-  padding: 0 1em;
+  padding: 0 0;
 }
 
 #login .card input::-ms-input-placeholder {
-  padding: 0 1em;
+  padding: 0 0;
 }
 
 #login .card input::placeholder {
-  padding: 0 1em;
+  padding: 0 0;
+}
+
+#login .card input:focus, #login .card input:focus-within {
+  padding-left: 1em;
 }
 
 #login .card .button, #login .card .btn-primary, #login .card .btn-secondary-light, #login .card .btn-accent-light {
   width: 100%;
   padding: 0.15em 0;
   margin: 1em 0;
-  -webkit-box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
-          box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+  -webkit-box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+          box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
 }
 
 #login .card .button:hover, #login .card .btn-primary:hover, #login .card .btn-secondary-light:hover, #login .card .btn-accent-light:hover {
@@ -473,25 +527,31 @@ header .menu > div > div ul li .active {
 }
 
 #chat {
+  overflow: hidden;
   margin: 4em 0;
 }
 
 #chat .chat-area {
-  background-color: #f8f8f7;
   margin: 2em 0;
-  padding: 1em;
+  padding: 1.5em;
+  background-color: #f8f8f7;
 }
 
 #chat .chat-area .chat-bubble {
   margin: 1em .3em;
-  position: relative;
-  width: 80%;
+  width: 85%;
+}
+
+#chat .chat-area .chat-bubble .chat-name {
+  font-size: .7em;
+  color: #2d487c;
 }
 
 #chat .chat-area .chat-bubble .chat-text {
+  position: relative;
   font-size: 1em;
   background-color: #7c74e9;
-  padding: 0.5em;
+  padding: 0.5em 1em;
   border-radius: 0.25em;
 }
 
@@ -504,6 +564,10 @@ header .menu > div > div ul li .active {
 
 #chat .chat-area .current-user {
   margin-left: auto;
+}
+
+#chat .chat-area .current-user .chat-name {
+  display: none;
 }
 
 #chat .chat-area .current-user .chat-text {
@@ -520,10 +584,15 @@ header .menu > div > div ul li .active {
 }
 
 #chat form #add-comment textarea {
+  padding: .75em;
+  font-family: Poppins;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 1.25em;
   margin: 1em 0;
   display: block;
   width: 100%;
-  height: 5em;
+  height: 8.5em;
   border: none;
   border-radius: 0.5em;
   -webkit-box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #f8f8f7;
@@ -531,6 +600,7 @@ header .menu > div > div ul li .active {
 }
 
 #chat form #add-comment .btn-accent-light {
+  margin: 1em 0;
   margin-left: auto;
 }
 
@@ -540,7 +610,7 @@ header .menu > div > div ul li .active {
 
 /* General CSS Setup */
 /* Right triangle placed top left flush. */
-.chat-bubble:before {
+.chat-text:before {
   content: " ";
   position: absolute;
   width: 0;
@@ -552,7 +622,7 @@ header .menu > div > div ul li .active {
   border-color: #7c74e9 transparent transparent transparent;
 }
 
-.chat-bubble:after {
+.chat-text:after {
   content: " ";
   position: absolute;
   width: 0;
@@ -565,7 +635,7 @@ header .menu > div > div ul li .active {
   border-color: #7c74e9 transparent transparent transparent;
 }
 
-.current-user:before {
+.current-user .chat-text:before {
   content: " ";
   position: absolute;
   width: 0;
@@ -577,7 +647,7 @@ header .menu > div > div ul li .active {
   border-color: #786bbb transparent transparent transparent;
 }
 
-.current-user:after {
+.current-user .chat-text:after {
   content: " ";
   position: absolute;
   width: 0;
@@ -588,216 +658,4 @@ header .menu > div > div ul li .active {
   bottom: auto;
   border: 22px solid;
   border-color: #786bbb transparent transparent transparent;
-}
-
-/* Right triangle, left side slightly down */
-.tri-right.border.left-in:before {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: -40px;
-  right: auto;
-  top: 30px;
-  bottom: auto;
-  border: 20px solid;
-  border-color: #666 #666 transparent transparent;
-}
-
-.tri-right.left-in:after {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: -20px;
-  right: auto;
-  top: 38px;
-  bottom: auto;
-  border: 12px solid;
-  border-color: lightyellow lightyellow transparent transparent;
-}
-
-/*Right triangle, placed bottom left side slightly in*/
-.tri-right.border.btm-left:before {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: -8px;
-  right: auto;
-  top: auto;
-  bottom: -40px;
-  border: 32px solid;
-  border-color: transparent transparent transparent #666;
-}
-
-.tri-right.btm-left:after {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: 0px;
-  right: auto;
-  top: auto;
-  bottom: -20px;
-  border: 22px solid;
-  border-color: transparent transparent transparent lightyellow;
-}
-
-/*Right triangle, placed bottom left side slightly in*/
-.tri-right.border.btm-left-in:before {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: 30px;
-  right: auto;
-  top: auto;
-  bottom: -40px;
-  border: 20px solid;
-  border-color: #666 transparent transparent #666;
-}
-
-.tri-right.btm-left-in:after {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: 38px;
-  right: auto;
-  top: auto;
-  bottom: -20px;
-  border: 12px solid;
-  border-color: lightyellow transparent transparent lightyellow;
-}
-
-/*Right triangle, placed bottom right side slightly in*/
-.tri-right.border.btm-right-in:before {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: 30px;
-  bottom: -40px;
-  border: 20px solid;
-  border-color: #666 #666 transparent transparent;
-}
-
-.tri-right.btm-right-in:after {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: 38px;
-  bottom: -20px;
-  border: 12px solid;
-  border-color: lightyellow lightyellow transparent transparent;
-}
-
-/*
-      left: -8px;
-    right: auto;
-    top: auto;
-      bottom: -40px;
-      border: 32px solid;
-      border-color: transparent transparent transparent #666;
-      left: 0px;
-    right: auto;
-    top: auto;
-      bottom: -20px;
-      border: 22px solid;
-      border-color: transparent transparent transparent lightyellow;
-  
-  /*Right triangle, placed bottom right side slightly in*/
-.tri-right.border.btm-right:before {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: -8px;
-  bottom: -40px;
-  border: 20px solid;
-  border-color: #666 #666 transparent transparent;
-}
-
-.tri-right.btm-right:after {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: 0px;
-  bottom: -20px;
-  border: 12px solid;
-  border-color: lightyellow lightyellow transparent transparent;
-}
-
-/* Right triangle, right side slightly down*/
-.tri-right.border.right-in:before {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: -40px;
-  top: 30px;
-  bottom: auto;
-  border: 20px solid;
-  border-color: #666 transparent transparent #666;
-}
-
-.tri-right.right-in:after {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: -20px;
-  top: 38px;
-  bottom: auto;
-  border: 12px solid;
-  border-color: lightyellow transparent transparent lightyellow;
-}
-
-/* Right triangle placed top right flush. */
-.tri-right.border.right-top:before {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: -40px;
-  top: -8px;
-  bottom: auto;
-  border: 32px solid;
-  border-color: #666 transparent transparent transparent;
-}
-
-.tri-right.right-top:after {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: -20px;
-  top: 0px;
-  bottom: auto;
-  border: 20px solid;
-  border-color: lightyellow transparent transparent transparent;
-}
-
-/* talk bubble contents */
-.talktext {
-  padding: 1em;
-  text-align: left;
-  line-height: 1.5em;
-}
-
-.talktext p {
-  /* remove webkit p margins */
-  -webkit-margin-before: 0em;
-  -webkit-margin-after: 0em;
 }

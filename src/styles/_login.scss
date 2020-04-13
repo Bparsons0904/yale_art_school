@@ -3,14 +3,14 @@
     margin: 3em auto;
     max-width: 250px;
     padding: 1em;
-    
 
     input {
+      box-sizing: border-box;
       color: $color-secondary-dark;
       font-size: 1em;
       border-color: $color-accent-dark;
       border: none;
-      padding: 0.5em 0;
+      padding: 0.5em 1em;
       width: 100%;
       max-width: 100%;
       border-radius: 25px;
@@ -18,20 +18,23 @@
     }
 
     input::placeholder {
-        padding: 0 1em;
+      padding: 0 0;
     }
+
+    input:focus, input:focus-within {
+      padding-left: 1em;
+    }
+
 
     .button {
       width: 100%;
       padding: 0.15em 0;
       margin: 1em 0;
-      box-shadow: 3px 3px 8px #b1b1b1,
-              -3px -3px 8px #ffffff;
-      
+      box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
     }
     .button:hover {
-        box-shadow: unset;
-        transform: scale(.98);
+      box-shadow: unset;
+      transform: scale(0.98);
     }
     #register {
       font-size: 0.75em;

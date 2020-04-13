@@ -94,14 +94,14 @@ export default class Login extends Component {
               type="button"
               onClick={this.googleSignIn}
             >
-              <i class="fab fa-google"></i>Google Login
+              <i className="fab fa-google"></i>Google Login
             </div>
             <div
               className="btn-secondary-light"
               type="button"
               onClick={this.githubSignIn}
             >
-              <i class="fab fa-github"></i>GitHub Login
+              <i className="fab fa-github"></i>GitHub Login
             </div>
             <hr />
             <p id="register">

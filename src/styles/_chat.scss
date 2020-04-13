@@ -1,22 +1,31 @@
 #chat {
+  overflow: hidden;
   margin: 4em 0;
+  // background-color: white;
   .chat-area {
-    background-color: $color-light;
     margin: 2em 0;
-    padding: 1em;
+    padding: 1.5em;
+    background-color: $color-light;
+    // box-shadow: 1px 1px 1px 1px black;
     .chat-bubble {
       // background-color: $color-primary;
       margin: 1em .3em;
       //   display: inline-block;
-      position: relative;
-      width: 80%;
+      
+      width: 85%;
+      .chat-name {
+        font-size: .7em;
+        color: $color-secondary-dark;
+      }
       .chat-text {
+        position: relative;
         font-size: 1em;
         background-color: $color-primary;
-        padding: 0.5em;
+        padding: 0.5em 1em;
         border-radius: 0.25em;
       }
       .chat-time {
+        
         font-size: 0.6em;
         margin-right: 0.5em;
         color: $color-secondary-dark;
@@ -25,6 +34,9 @@
     }
     .current-user {
       margin-left: auto;
+      .chat-name {
+        display: none;
+      }
       .chat-text {
         background-color: $color-accent-dark;
       }
@@ -36,15 +48,20 @@
     #add-comment {
       width: 100%;
       textarea {
+        padding: .75em;
+        font-family: Poppins;
+        box-sizing: border-box;
+        font-size: 1.25em;
         margin: 1em 0;
         display: block;
         width: 100%;
-        height: 5em;
+        height: 8.5em;
         border: none;
         border-radius: 0.5em;
         box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px $color-light;
       }
       .btn-accent-light {
+        margin: 1em 0;
         margin-left: auto;
       }
       .posting {
@@ -54,6 +71,9 @@
   }
 }
 
+// 3px 3px 11px 5px rgba(0, 0, 0, 0.23);
+
+// linear-gradient(-5deg, rgba(45,72,124,1) 0%, rgba(26,119,190,1) 50%, rgba(45,72,124,1) 100%)
 // box-shadow:  inset 2px 2px 5px #BABECC, inset -5px -5px 10px #fff;
 /* General CSS Setup */
 // body{
@@ -86,7 +106,7 @@
 //   }
 
 /* Right triangle placed top left flush. */
-.chat-bubble:before {
+.chat-text:before {
   content: " ";
   position: absolute;
   width: 0;
@@ -98,7 +118,7 @@
 
   border-color: $color-primary transparent transparent transparent;
 }
-.chat-bubble:after {
+.chat-text:after {
   content: " ";
   position: absolute;
   width: 0;
@@ -110,230 +130,30 @@
   border: 22px solid;
   border-color: $color-primary transparent transparent transparent;
 }
-.current-user:before {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  right: -16px;
-  left: auto;
-  top: 0;
-  bottom: auto;
-
-  border-color: $color-accent-dark transparent transparent transparent;
-}
-.current-user:after {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  right: -16px;
-  left: auto;
-  top: 0px;
-  bottom: auto;
-  border: 22px solid;
-  border-color: $color-accent-dark transparent transparent transparent;
-}
-
-/* Right triangle, left side slightly down */
-.tri-right.border.left-in:before {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: -40px;
-  right: auto;
-  top: 30px;
-  bottom: auto;
-  border: 20px solid;
-  border-color: #666 #666 transparent transparent;
-}
-.tri-right.left-in:after {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: -20px;
-  right: auto;
-  top: 38px;
-  bottom: auto;
-  border: 12px solid;
-  border-color: lightyellow lightyellow transparent transparent;
-}
-
-/*Right triangle, placed bottom left side slightly in*/
-.tri-right.border.btm-left:before {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: -8px;
-  right: auto;
-  top: auto;
-  bottom: -40px;
-  border: 32px solid;
-  border-color: transparent transparent transparent #666;
-}
-.tri-right.btm-left:after {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: 0px;
-  right: auto;
-  top: auto;
-  bottom: -20px;
-  border: 22px solid;
-  border-color: transparent transparent transparent lightyellow;
-}
-
-/*Right triangle, placed bottom left side slightly in*/
-.tri-right.border.btm-left-in:before {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: 30px;
-  right: auto;
-  top: auto;
-  bottom: -40px;
-  border: 20px solid;
-  border-color: #666 transparent transparent #666;
-}
-.tri-right.btm-left-in:after {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: 38px;
-  right: auto;
-  top: auto;
-  bottom: -20px;
-  border: 12px solid;
-  border-color: lightyellow transparent transparent lightyellow;
-}
-
-/*Right triangle, placed bottom right side slightly in*/
-.tri-right.border.btm-right-in:before {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: 30px;
-  bottom: -40px;
-  border: 20px solid;
-  border-color: #666 #666 transparent transparent;
-}
-.tri-right.btm-right-in:after {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: 38px;
-  bottom: -20px;
-  border: 12px solid;
-  border-color: lightyellow lightyellow transparent transparent;
-}
-/*
-      left: -8px;
-    right: auto;
-    top: auto;
-      bottom: -40px;
-      border: 32px solid;
-      border-color: transparent transparent transparent #666;
-      left: 0px;
-    right: auto;
-    top: auto;
-      bottom: -20px;
-      border: 22px solid;
-      border-color: transparent transparent transparent lightyellow;
+.current-user {
+  .chat-text:before {
+    content: " ";
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: -16px;
+    left: auto;
+    top: 0;
+    bottom: auto;
   
-  /*Right triangle, placed bottom right side slightly in*/
-.tri-right.border.btm-right:before {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: -8px;
-  bottom: -40px;
-  border: 20px solid;
-  border-color: #666 #666 transparent transparent;
-}
-.tri-right.btm-right:after {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: 0px;
-  bottom: -20px;
-  border: 12px solid;
-  border-color: lightyellow lightyellow transparent transparent;
+    border-color: $color-accent-dark transparent transparent transparent;
+  }
+  .chat-text:after {
+    content: " ";
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: -16px;
+    left: auto;
+    top: 0px;
+    bottom: auto;
+    border: 22px solid;
+    border-color: $color-accent-dark transparent transparent transparent;
+  }
 }
 
-/* Right triangle, right side slightly down*/
-.tri-right.border.right-in:before {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: -40px;
-  top: 30px;
-  bottom: auto;
-  border: 20px solid;
-  border-color: #666 transparent transparent #666;
-}
-.tri-right.right-in:after {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: -20px;
-  top: 38px;
-  bottom: auto;
-  border: 12px solid;
-  border-color: lightyellow transparent transparent lightyellow;
-}
-
-/* Right triangle placed top right flush. */
-.tri-right.border.right-top:before {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: -40px;
-  top: -8px;
-  bottom: auto;
-  border: 32px solid;
-  border-color: #666 transparent transparent transparent;
-}
-.tri-right.right-top:after {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: -20px;
-  top: 0px;
-  bottom: auto;
-  border: 20px solid;
-  border-color: lightyellow transparent transparent transparent;
-}
-
-/* talk bubble contents */
-.talktext {
-  padding: 1em;
-  text-align: left;
-  line-height: 1.5em;
-}
-.talktext p {
-  /* remove webkit p margins */
-  -webkit-margin-before: 0em;
-  -webkit-margin-after: 0em;
-}

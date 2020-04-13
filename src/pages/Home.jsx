@@ -3,10 +3,25 @@ import { Link } from "react-router-dom";
 import "../styles/styles.min.css";
 // import backdrop from "../assets/yale_gallery_backdrop.jpg";
 // import logo from "../assets/Yale_School_of_Art.png";
-import video_backdrop_small from "../assets/cover_small.mp4"
+import video_backdrop_small from "../assets/cover_small.mp4";
 
 export default class HomePage extends Component {
   render() {
+    const { isAuth } = this.props;
+    let loggedInButton;
+    if (isAuth) {
+      loggedInButton = (
+        <Link className="btn-accent-light" to="/chat">
+          Chat
+        </Link>
+      );
+    } else {
+      loggedInButton = (
+        <Link className="btn-accent-light" to="/login">
+          Login
+        </Link>
+      );
+    }
     return (
       <section id="home">
         <figure id="cover">
@@ -18,8 +33,10 @@ export default class HomePage extends Component {
         </figure> */}
         <div id="title">
           <h1>Yale School of Art</h1>
-          <Link className="btn-primary" to="/events">Events</Link>
-          <Link className="btn-accent-light" to="/login">Login</Link>
+          <Link className="btn-primary" to="/events">
+            Events
+          </Link>
+          {loggedInButton}
         </div>
       </section>
       // <div className="home">
