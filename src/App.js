@@ -1,3 +1,6 @@
+// Main controll page
+
+// Import requried methods and files
 import React, { Component } from "react";
 import {
   Route,
@@ -5,15 +8,20 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
+import { auth } from "./services/firebase";
+
+// Import components
 import Home from "./pages/Home";
 import Chat from "./pages/Chat";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Header from "./components/Header";
 // import Footer from './components/Footer';
-import { auth } from "./services/firebase";
+
+// Import CSS sheet
 import "./styles/styles.min.css";
 
+// Create route passed on user authenticaiton state, not authorized to login
 function PrivateRoute({ component: Component, authenticated, ...rest }) {
   return (
     <Route
@@ -31,6 +39,7 @@ function PrivateRoute({ component: Component, authenticated, ...rest }) {
   );
 }
 
+// Public route to non-restricted pages
 function PublicRoute({ component: Component, authenticated, ...rest }) {
   return (
     <Route
@@ -51,7 +60,9 @@ class App extends Component {
     };
   }
 
+  // Once component is mounted, check on user authentication
   componentDidMount() {
+    // Watch for authentication changes
     auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({
@@ -74,16 +85,11 @@ class App extends Component {
       </div>
     ) : (
       <Router>
+        {/* Always display header */}
         <Route exact path="*" render={props => <Header isAuth={this.state.authenticated} {...props} />}/>
+        {/* Route switch based on URL path */}
         <Switch>
-        
           <Route exact path="/" render={props => <Home isAuth={this.state.authenticated} {...props} />}/>
-          {/* <Route
-            exact
-            path="/"
-            authenticated={this.state.authenticated}
-            component={Home}
-          /> */}
           <PrivateRoute
             path="/chat"
             authenticated={this.state.authenticated}

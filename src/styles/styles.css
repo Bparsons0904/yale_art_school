@@ -1,9 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
-body {
-  font-family: Poppins;
-  background-color: #2d487c;
-}
-
 body,
 h1,
 h2,
@@ -19,66 +14,8 @@ a {
   text-decoration: none;
 }
 
-body {
-  width: 100vw;
-  margin-top: 50px;
-}
-
-.container {
-  padding: 1em;
-}
-
-.button, .btn-primary, .btn-secondary-light, .btn-accent-light {
-  width: 5em;
-  height: 2em;
-  border-radius: 0.5em;
-  text-align: center;
-  line-height: 2em;
-  padding: 0.2em 1.5em;
-  font-weight: bold;
-  border: solid 2px;
-  -webkit-transition: .5s;
-  transition: .5s;
-}
-
-.btn-primary {
-  background-color: #786bbb;
-  border-color: #7c74e9;
-}
-
-.btn-secondary-light {
-  background-color: #1a77be;
-  border-color: #1a77be;
-}
-
-.btn-accent-light {
-  background-color: #5fc74c;
-  border-color: #5fc74c;
-}
-
 i {
   padding-right: 1em;
-}
-
-.card {
-  background-color: #f8f8f7;
-  margin: .5em;
-  -webkit-box-shadow: 7px 7px 14px 2px rgba(0, 0, 0, 0.3);
-          box-shadow: 7px 7px 14px 2px rgba(0, 0, 0, 0.3);
-}
-
-.inner-card {
-  background-color: #1a77be;
-  padding: 1em .75em;
-  -webkit-transform: translateY(-2.5em);
-          transform: translateY(-2.5em);
-  border-radius: 0.5em;
-  margin-bottom: -2em;
-}
-
-.inner-card h1 {
-  color: #f8f8f7;
-  text-align: center;
 }
 
 input,
@@ -90,22 +27,100 @@ input:focus-within {
 }
 
 input {
-  border-bottom: solid 1px #786bbb;
+  border-bottom: solid 1px #5fc74c;
   margin: 1em 0;
-  -webkit-transition: .5s;
-  transition: .5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.text-danger {
+  color: #ce1423;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f8f8f7;
+}
+
+.container {
+  padding: 1em;
+}
+
+.card {
+  background-color: #f8f8f7;
+  margin: 0.5em;
+}
+
+.card-shadow {
+  -webkit-box-shadow: 3px 3px 12px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 3px 3px 12px 3px rgba(0, 0, 0, 0.1);
+}
+
+.inner-card {
+  padding: 1em 0.75em;
+  -webkit-transform: translateY(-2.5em);
+          transform: translateY(-2.5em);
+  border-radius: 0.5em;
+  margin-bottom: -2em;
+  background-color: #6558a8;
+  background: -webkit-gradient(linear, left top, left bottom, from(#9993f3), color-stop(40%, #6558a8), to(#6558a8));
+  background: linear-gradient(to bottom, #9993f3 0%, #6558a8 40%, #6558a8);
+}
+
+.inner-card h1 {
+  color: #f8f8f7;
+  text-align: center;
+}
+
+.button, .btn-primary, .btn-primary-outline, .btn-secondary, .btn-accent-light, .btn-accent-dark-outline {
+  width: 5em;
+  height: 2em;
+  border-radius: 0.7em;
+  text-align: center;
+  line-height: 2em;
+  padding: 0.2em 1.5em;
+  font-weight: bold;
+  border: solid 2px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.btn-primary {
+  background-color: #5fc74c;
+  border-color: #6558a8;
+}
+
+.btn-primary-outline {
+  background-color: #5fc74c;
+  border-color: #6558a8;
+}
+
+.btn-secondary {
+  border: unset;
+  background-color: #1b5e90;
+  background: -webkit-gradient(linear, left top, left bottom, from(#2a80c0), color-stop(70%, #1b5e90), to(#1b5e90));
+  background: linear-gradient(to bottom, #2a80c0 0%, #1b5e90 70%, #1b5e90);
+}
+
+.btn-accent-light {
+  border: unset;
+  background-color: #72f35a;
+  background: -webkit-gradient(linear, left top, left bottom, from(#72f35a), color-stop(70%, #5fc74c), to(#5fc74c));
+  background: linear-gradient(to bottom, #72f35a 0%, #5fc74c 70%, #5fc74c);
+}
+
+.btn-accent-dark-outline {
+  background-color: #5fc74c;
+  border-color: #5fc74c;
 }
 
 header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #f8f8f7;
+  background-color: #e6e6e6;
   width: 100vw;
   height: 50px;
-  position: fixed;
-  top: 0;
-  left: 0;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -132,7 +147,7 @@ header #title-group h1 {
   font-size: 1.4em;
   line-height: 50px;
   text-transform: uppercase;
-  color: #7c74e9;
+  color: #6558a8;
   font-weight: 800;
 }
 
@@ -182,7 +197,7 @@ header .menu-wrap .hamburger > div {
           flex: none;
   width: 100%;
   height: 3px;
-  background-color: #7c74e9;
+  background-color: #6558a8;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -205,7 +220,7 @@ header .menu-wrap .hamburger > div::after {
   width: 100%;
   height: 3px;
   background: inherit;
-  background-color: #7c74e9;
+  background-color: #6558a8;
 }
 
 header .menu-wrap .hamburger > div::after {
@@ -268,7 +283,7 @@ header .menu {
 }
 
 header .menu > div {
-  background: #2d487c;
+  background: #1b5e90;
   border-radius: 50%;
   width: 200vw;
   height: 200vw;
@@ -320,22 +335,11 @@ header .menu > div > div ul li a {
   overflow: hidden;
 }
 
-header .menu > div > div ul li a::before {
-  position: absolute;
-  content: attr(data-content);
-  /* Prints the value of the attribute */
-  top: 0;
-  left: 0;
-  color: white;
-  overflow: hidden;
-  height: 100%;
-  width: 0;
-  -webkit-transition: width 0.5s ease;
-  transition: width 0.5s ease;
-}
-
 header .menu > div > div ul li a:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
   color: #5fc74c;
+  font-weight: bold;
 }
 
 header .menu > div > div ul li .active::after {
@@ -351,6 +355,23 @@ header .menu > div > div ul li .active::after {
 
 header .menu > div > div ul li .active:hover::after {
   width: 0;
+}
+
+.home-display {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.home-display h1 {
+  display: none;
+}
+
+.home-display .menu-wrap .hamburger > div {
+  background-color: #f8f8f7;
+}
+
+.home-display .menu-wrap .hamburger > div::before,
+.home-display .menu-wrap .hamburger > div::after {
+  background-color: #f8f8f7;
 }
 
 #home {
@@ -416,14 +437,14 @@ header .menu > div > div ul li .active:hover::after {
           transform: translateY(-50%) translateX(-50%);
   display: -ms-grid;
   display: grid;
-      grid-template-areas: 'title title' 'events-btn enroll-btn';
+      grid-template-areas: "title title" "events-btn enroll-btn";
 }
 
 #home #title h1 {
   color: #f8f8f7;
   font-size: 4em;
   text-align: center;
-  padding: .5em;
+  padding: 0.5em;
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
@@ -434,7 +455,7 @@ header .menu > div > div ul li .active:hover::after {
   color: #f8f8f7;
 }
 
-#home #title .button:nth-of-type(1), #home #title .btn-primary:nth-of-type(1), #home #title .btn-secondary-light:nth-of-type(1), #home #title .btn-accent-light:nth-of-type(1) {
+#home #title .button:nth-of-type(1), #home #title .btn-primary:nth-of-type(1), #home #title .btn-primary-outline:nth-of-type(1), #home #title .btn-secondary:nth-of-type(1), #home #title .btn-accent-light:nth-of-type(1), #home #title .btn-accent-dark-outline:nth-of-type(1) {
   margin: auto;
   -ms-grid-row: 2;
   -ms-grid-column: 1;
@@ -443,7 +464,7 @@ header .menu > div > div ul li .active:hover::after {
   border-width: 3px;
 }
 
-#home #title .button:nth-of-type(2), #home #title .btn-primary:nth-of-type(2), #home #title .btn-secondary-light:nth-of-type(2), #home #title .btn-accent-light:nth-of-type(2) {
+#home #title .button:nth-of-type(2), #home #title .btn-primary:nth-of-type(2), #home #title .btn-primary-outline:nth-of-type(2), #home #title .btn-secondary:nth-of-type(2), #home #title .btn-accent-light:nth-of-type(2), #home #title .btn-accent-dark-outline:nth-of-type(2) {
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: enroll-btn;
@@ -452,26 +473,30 @@ header .menu > div > div ul li .active:hover::after {
   border-width: 3px;
 }
 
-#home #title .button:nth-of-type(1):hover, #home #title .btn-primary:nth-of-type(1):hover, #home #title .btn-secondary-light:nth-of-type(1):hover, #home #title .btn-accent-light:nth-of-type(1):hover {
-  background-color: #7c74e9;
+#home #title .button:nth-of-type(1):hover, #home #title .btn-primary:nth-of-type(1):hover, #home #title .btn-primary-outline:nth-of-type(1):hover, #home #title .btn-secondary:nth-of-type(1):hover, #home #title .btn-accent-light:nth-of-type(1):hover, #home #title .btn-accent-dark-outline:nth-of-type(1):hover {
+  background-color: #6558a8;
 }
 
-#home #title .button:nth-of-type(2):hover, #home #title .btn-primary:nth-of-type(2):hover, #home #title .btn-secondary-light:nth-of-type(2):hover, #home #title .btn-accent-light:nth-of-type(2):hover {
+#home #title .button:nth-of-type(2):hover, #home #title .btn-primary:nth-of-type(2):hover, #home #title .btn-primary-outline:nth-of-type(2):hover, #home #title .btn-secondary:nth-of-type(2):hover, #home #title .btn-accent-light:nth-of-type(2):hover, #home #title .btn-accent-dark-outline:nth-of-type(2):hover {
   background-color: #5fc74c;
 }
 
-#login .card {
+#login p, #register p {
+  color: #2d327c;
+}
+
+#login .card, #register .card {
   margin: 3em auto;
   max-width: 250px;
   padding: 1em;
 }
 
-#login .card input {
+#login .card input, #register .card input {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  color: #2d487c;
+  color: #1b5e90;
   font-size: 1em;
-  border-color: #786bbb;
+  border-color: #5fc74c;
   border: none;
   padding: 0.5em 1em;
   width: 100%;
@@ -481,27 +506,27 @@ header .menu > div > div ul li .active:hover::after {
           box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
 }
 
-#login .card input::-webkit-input-placeholder {
+#login .card input::-webkit-input-placeholder, #register .card input::-webkit-input-placeholder {
   padding: 0 0;
 }
 
-#login .card input:-ms-input-placeholder {
+#login .card input:-ms-input-placeholder, #register .card input:-ms-input-placeholder {
   padding: 0 0;
 }
 
-#login .card input::-ms-input-placeholder {
+#login .card input::-ms-input-placeholder, #register .card input::-ms-input-placeholder {
   padding: 0 0;
 }
 
-#login .card input::placeholder {
+#login .card input::placeholder, #register .card input::placeholder {
   padding: 0 0;
 }
 
-#login .card input:focus, #login .card input:focus-within {
+#login .card input:focus, #login .card input:focus-within, #register .card input:focus, #register .card input:focus-within {
   padding-left: 1em;
 }
 
-#login .card .button, #login .card .btn-primary, #login .card .btn-secondary-light, #login .card .btn-accent-light {
+#login .card .button, #login .card .btn-primary, #login .card .btn-primary-outline, #login .card .btn-secondary, #login .card .btn-accent-light, #login .card .btn-accent-dark-outline, #register .card .button, #register .card .btn-primary, #register .card .btn-primary-outline, #register .card .btn-secondary, #register .card .btn-accent-light, #register .card .btn-accent-dark-outline {
   width: 100%;
   padding: 0.15em 0;
   margin: 1em 0;
@@ -509,26 +534,25 @@ header .menu > div > div ul li .active:hover::after {
           box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
 }
 
-#login .card .button:hover, #login .card .btn-primary:hover, #login .card .btn-secondary-light:hover, #login .card .btn-accent-light:hover {
+#login .card .button:hover, #login .card .btn-primary:hover, #login .card .btn-primary-outline:hover, #login .card .btn-secondary:hover, #login .card .btn-accent-light:hover, #login .card .btn-accent-dark-outline:hover, #register .card .button:hover, #register .card .btn-primary:hover, #register .card .btn-primary-outline:hover, #register .card .btn-secondary:hover, #register .card .btn-accent-light:hover, #register .card .btn-accent-dark-outline:hover {
   -webkit-box-shadow: unset;
           box-shadow: unset;
   -webkit-transform: scale(0.98);
           transform: scale(0.98);
 }
 
-#login .card #register {
+#login .card .change-type, #register .card .change-type {
   font-size: 0.75em;
-  color: #2d487c;
+  color: #1b5e90;
 }
 
-#login .card #register a {
+#login .card .change-type a, #register .card .change-type a {
   -webkit-text-decoration: solid;
           text-decoration: solid;
 }
 
 #chat {
   overflow: hidden;
-  margin: 4em 0;
 }
 
 #chat .chat-area {
@@ -538,27 +562,40 @@ header .menu > div > div ul li .active:hover::after {
 }
 
 #chat .chat-area .chat-bubble {
-  margin: 1em .3em;
+  margin: .5em .3em;
   width: 85%;
 }
 
 #chat .chat-area .chat-bubble .chat-name {
   font-size: .7em;
-  color: #2d487c;
+  color: #2d327c;
 }
 
 #chat .chat-area .chat-bubble .chat-text {
   position: relative;
   font-size: 1em;
-  background-color: #7c74e9;
+  background-color: #1b5e90;
   padding: 0.5em 1em;
   border-radius: 0.25em;
+}
+
+#chat .chat-area .chat-bubble .chat-text:after {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -1em;
+  right: auto;
+  top: 0px;
+  bottom: auto;
+  border: 1.5em solid;
+  border-color: #1b5e90 transparent transparent transparent;
 }
 
 #chat .chat-area .chat-bubble .chat-time {
   font-size: 0.6em;
   margin-right: 0.5em;
-  color: #2d487c;
+  color: #2d327c;
   text-align: right;
 }
 
@@ -566,12 +603,25 @@ header .menu > div > div ul li .active:hover::after {
   margin-left: auto;
 }
 
+#chat .chat-area .current-user .chat-text:after {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  right: -1em;
+  left: auto;
+  bottom: 0;
+  top: auto;
+  border: 1.5em solid;
+  border-color: transparent transparent #2a80c0 transparent;
+}
+
 #chat .chat-area .current-user .chat-name {
   display: none;
 }
 
 #chat .chat-area .current-user .chat-text {
-  background-color: #786bbb;
+  background-color: #2a80c0;
 }
 
 #chat form {
@@ -588,7 +638,7 @@ header .menu > div > div ul li .active:hover::after {
   font-family: Poppins;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-size: 1.25em;
+  font-size: 1.1em;
   margin: 1em 0;
   display: block;
   width: 100%;
@@ -605,57 +655,5 @@ header .menu > div > div ul li .active:hover::after {
 }
 
 #chat form #add-comment .posting {
-  color: #2d487c;
-}
-
-/* General CSS Setup */
-/* Right triangle placed top left flush. */
-.chat-text:before {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: -16px;
-  right: auto;
-  top: 0;
-  bottom: auto;
-  border-color: #7c74e9 transparent transparent transparent;
-}
-
-.chat-text:after {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: -16px;
-  right: auto;
-  top: 0px;
-  bottom: auto;
-  border: 22px solid;
-  border-color: #7c74e9 transparent transparent transparent;
-}
-
-.current-user .chat-text:before {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  right: -16px;
-  left: auto;
-  top: 0;
-  bottom: auto;
-  border-color: #786bbb transparent transparent transparent;
-}
-
-.current-user .chat-text:after {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  right: -16px;
-  left: auto;
-  top: 0px;
-  bottom: auto;
-  border: 22px solid;
-  border-color: #786bbb transparent transparent transparent;
+  color: #1b5e90;
 }

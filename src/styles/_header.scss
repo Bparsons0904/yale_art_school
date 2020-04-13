@@ -1,75 +1,8 @@
-// nav {
-//   background-color: blue;
-//   display: flex;
-//   justify-content: space-between;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   padding: 1em;
-//   color: white;
-//   h1 {
-//     font-size: 1.5em;
-//   }
-
-//   ul {
-//     position: absolute;
-//     right: -300px;
-//     height: 100vh;
-//   }
-// }
-// #hamburger {
-//   margin: 0.5em 2em 0 0;
-//   span {
-//     display: block;
-//     width: 33px;
-//     height: 4px;
-//     margin-bottom: 5px;
-//     position: relative;
-//     background: white;
-//     border-radius: 3px;
-//     z-index: 1;
-//     transform-origin: 4px 0px;
-//     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
-//       background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
-//   }
-//   span:first-child {
-//     transform-origin: 0% 0%;
-//   }
-
-//   span:nth-last-child(2) {
-//     transform-origin: 0% 100%;
-//   }
-// }
-// body {
-//     background: black;
-// }
-// .menu-active {
-//   span {
-//     opacity: 1;
-//     transform: rotate(45deg) translate(-2px, -1px);
-//   }
-//   #ham-1 {
-//     opacity: 0;
-//     transform: rotate(0deg) scale(0.2, 0.2);
-//   }
-//   #ham-2 {
-//     transform: rotate(-45deg) translate(0, -1px);
-//   }
-// }
-// :root {
-//     --primary-color: rgba(13, 110, 139, 0.75);
-//     --overlay-color: rgba(24, 39, 51 , 0.85);
-//     --menu-speed: 0.75s;
-//   }
-
 header {
   display: flex;
-  background-color: $color-light;
+  background-color: $color-grey;
   width: 100vw;
   height: 50px;
-  position: fixed;
-  top: 0;
-  left: 0;
   justify-content: space-between;
   z-index: 1;
   box-sizing: border-box;
@@ -78,11 +11,9 @@ header {
     img {
       height: 2em;
       padding: 0.5em 0 0.5em 1em;
-      // padding: .5em 1em;
       width: auto;
       display: none;
     }
-
     h1 {
       padding-left: 1em;
       font-size: 1.4em;
@@ -92,12 +23,10 @@ header {
       font-weight: 800;
     }
   }
-
   .menu-wrap {
     z-index: 1;
     background-color: red;
     position: relative;
-    // width: 20%;
     .toggler {
       position: absolute;
       top: 0;
@@ -147,7 +76,6 @@ header {
         top: 10px;
       }
     }
-
     .toggler:checked {
       + .hamburger {
         > div {
@@ -220,41 +148,10 @@ header {
               display: inline-block;
               overflow: hidden;
             }
-            a::before {
-              position: absolute;
-              content: attr(
-                data-content
-              ); /* Prints the value of the attribute */
-              top: 0;
-              left: 0;
-              color: white;
-              overflow: hidden;
-              // transition: all 500ms ease;
-              // height: 0;
-              // width: 0;
-              // white-space: nowrap;
-              // display: block;
-              // margin: auto;
-              height: 100%;
-              width: 0;
-              transition: width 0.5s ease;
-            }
-            // a::after {
-            //   position: absolute;
-            //   top: 0;
-            //   left: 0;
-            //   transition: all 500ms ease;
-            //   height: 100%;
-            //   width: 100%;
-            // }
-            // a:hover {
-            //   color: $color-accent-light;
-            //   // text-shadow: 1px 1px 2px $color-accent-light;
-            // }
             a:hover {
-              // height: 100%;
-              // width: 100%;
-              color: $color-accent-light;
+              transform: scale(1.1);
+              color: $color-accent-dark;
+              font-weight: bold;
             }
             .active::after {
               content: "";
@@ -262,7 +159,7 @@ header {
               margin: auto;
               height: 3px;
               width: 100%;
-              background: $color-accent-light;
+              background: $color-accent-dark;
               transition: width 0.5s ease-in-out;
             }
             .active:hover::after {
@@ -272,5 +169,25 @@ header {
         }
       }
     }
+  }
+}
+
+// Remove nav other than hamburger when home active
+.home-display {
+  background-color: rgba(255, 255, 255, 0);
+  h1 {
+    display: none;
+  }
+  .menu-wrap {
+    .hamburger {
+      > div {
+        background-color: $color-light;
+      }
+      > div::before,
+      > div::after {
+        background-color: $color-light;
+      }
+    }
+
   }
 }

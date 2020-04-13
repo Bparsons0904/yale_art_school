@@ -1,3 +1,4 @@
+// Common text settings
 body,
 h1,
 h2,
@@ -13,66 +14,8 @@ a {
   text-decoration: none;
 }
 
-body {
-  width: 100vw;
-  margin-top: 50px;
-}
-
-.container {
-  padding: 1em;
-}
-
-.button {
-  width: 5em;
-  height: 2em;
-  border-radius: 0.5em;
-  text-align: center;
-  line-height: 2em;
-  padding: 0.2em 1.5em;
-  font-weight: bold;
-  border: solid 2px;
-              transition: .5s;
-}
-
-.btn-primary {
-  @extend .button;
-  background-color: $color-accent-dark;
-  border-color: $color-primary;
-}
-
-.btn-secondary-light {
-  @extend .button;
-  background-color: $color-secondary-light;
-  border-color: $color-secondary-light;
-}
-
-.btn-accent-light {
-  @extend .button;
-  background-color: $color-accent-light;
-  border-color: $color-accent-light;
-}
-
 i {
   padding-right: 1em;
-}
-
-.card {
-  background-color: $color-light;
-  margin: .5em;
-  box-shadow: 7px 7px 14px 2px rgba(0,0,0,0.3);
-}
-
-.inner-card {
-  background-color: $color-secondary-light;
-  padding: 1em .75em;
-  transform: translateY(-2.5em);
-  border-radius: 0.5em;
-  margin-bottom: -2em;
-
-  h1 {
-    color: $color-light;
-    text-align: center;
-  }
 }
 
 input,
@@ -85,21 +28,102 @@ input:focus-within {
 
 input {
   border-bottom: solid 1px $color-accent-dark;
-
   margin: 1em 0;
-  transition: .5s;
+  transition: 0.5s;
 }
 
+.text-danger {
+  color: $color-warning;
+}
 
-// input:focus {
-//   outline: none !important;
-//   background-color: $color-light;
-// }
-// input:focus-within {
-//   outline: none !important;
-//   background-color: #ffffff;
-//   background-color: $color-light;
-// }
-// input:-internal-autofill-selected {
-//   background-color: #ffffff;
-// }
+// Common container css
+body {
+  font-family: $primary-font;
+  background-color: $color-light;
+}
+
+.container {
+  padding: 1em;
+}
+
+.card {
+  background-color: $color-light;
+  margin: 0.5em;
+}
+
+.card-shadow {
+  box-shadow: 3px 3px 12px 3px rgba(0, 0, 0, 0.1);
+}
+
+.inner-card {
+  padding: 1em 0.75em;
+  transform: translateY(-2.5em);
+  border-radius: 0.5em;
+  margin-bottom: -2em;
+  background-color: $color-primary;
+  background: linear-gradient(
+    to bottom,
+    $color-primary-light 0%,
+    $color-primary 40%,
+    $color-primary
+  );
+  h1 {
+    color: $color-light;
+    text-align: center;
+  }
+}
+
+// Common buttons
+.button {
+  width: 5em;
+  height: 2em;
+  border-radius: 0.7em;
+  text-align: center;
+  line-height: 2em;
+  padding: 0.2em 1.5em;
+  font-weight: bold;
+  border: solid 2px;
+  transition: 0.5s;
+}
+
+.btn-primary {
+  @extend .button;
+  background-color: $color-accent-dark;
+  border-color: $color-primary;
+}
+
+.btn-primary-outline {
+  @extend .button;
+  background-color: $color-accent-dark;
+  border-color: $color-primary;
+}
+
+.btn-secondary {
+  @extend .button;
+  border: unset;
+  background-color: $color-secondary-dark;
+  background: linear-gradient(
+    to bottom,
+    $color-secondary-light 0%,
+    $color-secondary-dark 70%,
+    $color-secondary-dark
+  );
+}
+
+.btn-accent-light {
+  @extend .button;
+  border: unset;
+  background-color: $color-accent-light;
+  background: linear-gradient(
+    to bottom,
+    $color-accent-light 0%,
+    $color-accent-dark 70%,
+    $color-accent-dark
+  );
+}
+
+.btn-accent-dark-outline {
+  @extend .button;
+  background-color: $color-accent-dark;
+  border-color: $color-accent-dark;
+}

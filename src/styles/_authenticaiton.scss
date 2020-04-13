@@ -1,9 +1,12 @@
-#login {
+// Shared CSS for registraion and login forms
+#login, #register {
+  p {
+    color: $color-dark;
+  }
   .card {
     margin: 3em auto;
     max-width: 250px;
     padding: 1em;
-
     input {
       box-sizing: border-box;
       color: $color-secondary-dark;
@@ -16,7 +19,6 @@
       border-radius: 25px;
       box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
     }
-
     input::placeholder {
       padding: 0 0;
     }
@@ -24,8 +26,6 @@
     input:focus, input:focus-within {
       padding-left: 1em;
     }
-
-
     .button {
       width: 100%;
       padding: 0.15em 0;
@@ -36,7 +36,7 @@
       box-shadow: unset;
       transform: scale(0.98);
     }
-    #register {
+    .change-type {
       font-size: 0.75em;
       color: $color-secondary-dark;
       a {
@@ -44,22 +44,4 @@
       }
     }
   }
-  // .input-container {
-  //     width: 100%;
-  //     padding: 75px 5px 5px 5px;
-  //   }
-  //   .input-container input {
-  //     border: none;
-  //     outline:none;
-  //     background: none;
-  //     font-size: 18px;
-  //     color: #555;
-  //     padding:20px 10px 20px 5px;
-  //   }
-  //   .email, .password {
-  //     margin-bottom: 30px;
-  //     border-radius: 25px;
-  //     box-shadow: inset 8px 8px 8px #cbced1,
-  //                 inset -8px -8px 8px #ffffff;
-  //   }
 }

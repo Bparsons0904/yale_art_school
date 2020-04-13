@@ -1,23 +1,42 @@
+// Main homepage
+
+// Import required files
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "../styles/styles.min.css";
-// import backdrop from "../assets/yale_gallery_backdrop.jpg";
-// import logo from "../assets/Yale_School_of_Art.png";
 import video_backdrop_small from "../assets/cover_small.mp4";
 
 export default class HomePage extends Component {
+  // After component loads
+  componentDidMount() {
+    // Remove navbar except hamburger
+    document.getElementById('header-nav').classList.add("home-display");
+    // Set active nav link
+    let menuItems = document.getElementsByClassName("active");
+    for (const element of menuItems) {
+      element.classList.remove("active");
+    }
+    document.getElementById('menu-item-home').classList.add("active");
+  };
+
+  // Return navbar to standard
+  componentWillUnmount() {
+    document.getElementById('header-nav').classList.remove("home-display");
+  }
+
   render() {
+    // Set variable for auth status
     const { isAuth } = this.props;
     let loggedInButton;
+    // Set user button based on authentication status
     if (isAuth) {
       loggedInButton = (
-        <Link className="btn-accent-light" to="/chat">
+        <Link className="btn-accent-dark-outline" to="/chat">
           Chat
         </Link>
       );
     } else {
       loggedInButton = (
-        <Link className="btn-accent-light" to="/login">
+        <Link className="btn-accent-dark-outline" to="/login">
           Login
         </Link>
       );
@@ -25,7 +44,6 @@ export default class HomePage extends Component {
     return (
       <section id="home">
         <figure id="cover">
-          {/* <img src={backdrop} alt="" /> */}
           <video src={video_backdrop_small} autoPlay muted loop></video>
         </figure>
         {/* <figure id="logo">
@@ -33,26 +51,12 @@ export default class HomePage extends Component {
         </figure> */}
         <div id="title">
           <h1>Yale School of Art</h1>
-          <Link className="btn-primary" to="/events">
+          <Link className="btn-primary-outline" to="/events">
             Events
           </Link>
           {loggedInButton}
         </div>
       </section>
-      // <div className="home">
-      //   <section>
-      //     <div className="jumbotron jumbotron-fluid py-5">
-      //       <div className="container text-center py-5">
-      //         <h1 className="display-4">Welcome to Chatty</h1>
-      //         <p className="lead">A great place to share your thoughts with friends</p>
-      //         <div className="mt-4">
-      //           <Link className="btn btn-primary px-5 mr-3" to="/signup">Create New Account</Link>
-      //           <Link className="btn px-5" to="/login">Login to Your Account</Link>
-      //         </div>
-      //       </div>
-      //     </div>
-      //   </section>
-      // </div>
     );
   }
 }

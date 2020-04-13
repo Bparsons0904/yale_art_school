@@ -1,7 +1,11 @@
+// Firebase services file
+
+// Import firebase functions 
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
-// import "firebase/database";
+
+// Set config for DB
 const config = {
   apiKey: "AIzaSyAoIBZShVSMCw-vQmKiw2fndRLcTyEVhgU",
   authDomain: "yale-art.firebaseapp.com",
@@ -14,6 +18,6 @@ const config = {
 // Initialize Firebase
 firebase.initializeApp(config);
 
+// Export auth and db connections
 export const auth = firebase.auth;
-// export const db = firebase.database();
 export const db = firebase.firestore();

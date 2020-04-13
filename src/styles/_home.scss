@@ -13,22 +13,13 @@
     width: 100vw;
     height: 100vh;
     z-index: -2;
-    // background-color: #fff;
     img {
-      //   position: absolute;
-      //   top: -9999px;
-      //   bottom: -9999px;
-      //   left: -9999px;
-      //   right: -9999px;
-      //   margin: auto;
       position: absolute;
       width: auto;
       height: 100vh;
       left: 50%;
       top: 50%;
       transform: translateY(-50%) translateX(-50%) scale(1.25);
-      
-    //   opacity: .3;
     }
     video {
       left: 50%;
@@ -38,62 +29,58 @@
       top: 50%;
       transform: translate(-50%, -50%);
       overflow: hidden;
-      }
+    }
   }
   #logo {
-      position: absolute;
-      top: 50px;
-      right: 0px;
-      margin: 1.5em;
-      height: 100px;
-      z-index: 0;
-      img {
-          width: auto;
-          height: 100%;
-      };
+    position: absolute;
+    top: 50px;
+    right: 0px;
+    margin: 1.5em;
+    height: 100px;
+    z-index: 0;
+    img {
+      width: auto;
+      height: 100%;
+    }
   }
   #title {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 100%;
-      transform: translateY(-50%) translateX(-50%);
-    //   background-color: rgba(0, 0, 0, 0.25);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translateY(-50%) translateX(-50%);
     display: grid;
-    grid-template-areas: 
-        'title title'
-        'events-btn enroll-btn' ;
-      h1 {
-          color: $color-light;
-          font-size: 4em;
-          text-align: center;
-          
-          padding: .5em;
-          grid-area: title;
-      }
-      a {
-        color: $color-light;
-      }
-      .button:nth-of-type(1) {
-          margin: auto;
-          grid-area: events-btn;
-          background-color: rgba(0, 0, 0, 0);
-          border-width: 3px;
-      }
-      .button:nth-of-type(2) {
-          grid-area: enroll-btn;
-          margin: auto;
-          background-color: rgba(0, 0, 0, 0);
-          border-width: 3px;
-      }
-      .button:nth-of-type(1):hover {
-          background-color: $color-primary;
-          // color: $color-primary;
-      }
-      .button:nth-of-type(2):hover {
-        background-color: $color-accent-light;
-        // color: $color-accent-light;
-      }
+    grid-template-areas:
+      "title title"
+      "events-btn enroll-btn";
+    h1 {
+      color: $color-light;
+      font-size: 4em;
+      text-align: center;
+
+      padding: 0.5em;
+      grid-area: title;
+    }
+    a {
+      color: $color-light;
+    }
+    .button:nth-of-type(1) {
+      margin: auto;
+      grid-area: events-btn;
+      background-color: rgba(0, 0, 0, 0);
+      border-width: 3px;
+    }
+    .button:nth-of-type(2) {
+      grid-area: enroll-btn;
+      margin: auto;
+      background-color: rgba(0, 0, 0, 0);
+      border-width: 3px;
+    }
+    .button:nth-of-type(1):hover {
+      background-color: $color-primary;
+    }
+    .button:nth-of-type(2):hover {
+      background-color: $color-accent-dark;
+    }
   }
 }
-

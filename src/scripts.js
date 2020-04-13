@@ -1,5 +1,1 @@
-
-function test(params) {
-    console.log("Test");
-    
-}
+// If need JS file

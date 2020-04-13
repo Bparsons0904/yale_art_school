@@ -1,44 +1,61 @@
 #chat {
   overflow: hidden;
-  margin: 4em 0;
-  // background-color: white;
   .chat-area {
     margin: 2em 0;
     padding: 1.5em;
     background-color: $color-light;
-    // box-shadow: 1px 1px 1px 1px black;
     .chat-bubble {
-      // background-color: $color-primary;
-      margin: 1em .3em;
-      //   display: inline-block;
-      
+      margin: .5em .3em;
       width: 85%;
       .chat-name {
         font-size: .7em;
-        color: $color-secondary-dark;
+        color: $color-dark;
       }
       .chat-text {
         position: relative;
         font-size: 1em;
-        background-color: $color-primary;
+        background-color: $color-secondary-dark;
         padding: 0.5em 1em;
         border-radius: 0.25em;
       }
+      .chat-text:after {
+        content: " ";
+        position: absolute;
+        width: 0;
+        height: 0;
+        left: -1em;
+        right: auto;
+        top: 0px;
+        bottom: auto;
+        border: 1.5em solid;
+        border-color: $color-secondary-dark transparent transparent transparent;
+      }
       .chat-time {
-        
         font-size: 0.6em;
         margin-right: 0.5em;
-        color: $color-secondary-dark;
+        color: $color-dark;
         text-align: right;
       }
     }
     .current-user {
       margin-left: auto;
+        .chat-text:after {
+          content: " ";
+          position: absolute;
+          width: 0;
+          height: 0;
+          right: -1em;
+          left: auto;
+          bottom: 0;
+          top: auto;
+          border: 1.5em solid;
+          border-color: transparent transparent $color-secondary-light transparent;
+        }
       .chat-name {
         display: none;
       }
       .chat-text {
-        background-color: $color-accent-dark;
+        background-color: $color-secondary-light;
       }
     }
   }
@@ -51,7 +68,7 @@
         padding: .75em;
         font-family: Poppins;
         box-sizing: border-box;
-        font-size: 1.25em;
+        font-size: 1.1em;
         margin: 1em 0;
         display: block;
         width: 100%;
@@ -71,89 +88,5 @@
   }
 }
 
-// 3px 3px 11px 5px rgba(0, 0, 0, 0.23);
 
-// linear-gradient(-5deg, rgba(45,72,124,1) 0%, rgba(26,119,190,1) 50%, rgba(45,72,124,1) 100%)
-// box-shadow:  inset 2px 2px 5px #BABECC, inset -5px -5px 10px #fff;
-/* General CSS Setup */
-// body{
-//     background-color: lightblue;
-//     font-family: "Ubuntu-Italic", "Lucida Sans", helvetica, sans;
-//   }
-
-//   /* container */
-//   .container {
-//     padding: 5% 5%;
-//   }
-
-//   /* CSS talk bubble */
-//   .talk-bubble {
-//       margin: 40px;
-//     display: inline-block;
-//     position: relative;
-//       width: 200px;
-//       height: auto;
-//       background-color: lightyellow;
-//   }
-//   .border{
-//     border: 8px solid #666;
-//   }
-//   .round{
-//     border-radius: 30px;
-//       -webkit-border-radius: 30px;
-//       -moz-border-radius: 30px;
-
-//   }
-
-/* Right triangle placed top left flush. */
-.chat-text:before {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: -16px;
-  right: auto;
-  top: 0;
-  bottom: auto;
-
-  border-color: $color-primary transparent transparent transparent;
-}
-.chat-text:after {
-  content: " ";
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: -16px;
-  right: auto;
-  top: 0px;
-  bottom: auto;
-  border: 22px solid;
-  border-color: $color-primary transparent transparent transparent;
-}
-.current-user {
-  .chat-text:before {
-    content: " ";
-    position: absolute;
-    width: 0;
-    height: 0;
-    right: -16px;
-    left: auto;
-    top: 0;
-    bottom: auto;
-  
-    border-color: $color-accent-dark transparent transparent transparent;
-  }
-  .chat-text:after {
-    content: " ";
-    position: absolute;
-    width: 0;
-    height: 0;
-    right: -16px;
-    left: auto;
-    top: 0px;
-    bottom: auto;
-    border: 22px solid;
-    border-color: $color-accent-dark transparent transparent transparent;
-  }
-}
 
