@@ -96,7 +96,7 @@ export default class Chat extends Component {
   render() {
     return (
       <section id="chat" className="container">
-        <div className="chat-area card-shadow" >
+        <div className="chat-area card card-shadow" >
           {/* loading indicator */}
           {this.state.loadingChats ? (
             <div className="" role="status">

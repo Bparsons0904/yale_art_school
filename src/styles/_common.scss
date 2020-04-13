@@ -49,10 +49,14 @@ body {
 .card {
   background-color: $color-light;
   margin: 0.5em;
+  border-radius: .5em;
+  max-width: 400px;
+  
 }
 
 .card-shadow {
   box-shadow: 3px 3px 12px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: inset -2px -2px 13px 5px rgba(0,0,0,0.1);
 }
 
 .inner-card {

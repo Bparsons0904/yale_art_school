@@ -84,7 +84,7 @@ class App extends Component {
         <span className="sr-only">Loading...</span>
       </div>
     ) : (
-      <Router>
+      <Router basename="/yaleart/">
         {/* Always display header */}
         <Route exact path="*" render={props => <Header isAuth={this.state.authenticated} {...props} />}/>
         {/* Route switch based on URL path */}
