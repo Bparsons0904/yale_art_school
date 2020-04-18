@@ -8,6 +8,7 @@
     max-width: 250px;
     padding: 1em;
     input {
+      -webkit-appearance: none;
       box-sizing: border-box;
       color: $color-secondary-dark;
       font-size: 1em;
@@ -20,10 +21,12 @@
       box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
     }
     input::placeholder {
+      -webkit-appearance: none;
       padding: 0 0;
     }
 
     input:focus, input:focus-within {
+      -webkit-appearance: none;
       padding-left: 1em;
     }
     .button {

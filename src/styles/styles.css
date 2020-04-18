@@ -21,16 +21,16 @@ i {
 input,
 input:focus,
 input:focus-within {
+  -webkit-appearance: none;
   border: none;
   outline: none;
   background-color: #f8f8f7;
 }
 
 input {
+  -webkit-appearance: none;
   border-bottom: solid 1px #5fc74c;
   margin: 1em 0;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
 }
 
 .text-danger {
@@ -40,6 +40,15 @@ input {
 body {
   font-family: "Poppins", sans-serif;
   background-color: #f8f8f7;
+  -webkit-appearance: none;
+}
+
+form {
+  -webkit-appearance: none;
+}
+
+form input {
+  -webkit-appearance: none;
 }
 
 .container {
@@ -120,12 +129,14 @@ body {
 
 header {
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   background-color: #e6e6e6;
   width: 100vw;
   height: 50px;
   -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
   z-index: 1;
@@ -135,6 +146,7 @@ header {
 
 header #title-group {
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
@@ -182,12 +194,15 @@ header .menu-wrap .hamburger {
   height: 30px;
   padding: 0.6em 1em;
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
+  -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
+  -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-transition-delay: 0.4s;
@@ -197,18 +212,22 @@ header .menu-wrap .hamburger {
 header .menu-wrap .hamburger > div {
   position: relative;
   -webkit-box-flex: 0;
+  -webkit-flex: none;
       -ms-flex: none;
           flex: none;
   width: 100%;
   height: 3px;
   background-color: #6558a8;
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
+  -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
+  -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-transition: all 0.4s ease;
@@ -276,12 +295,15 @@ header .menu {
   visibility: hidden;
   overflow: hidden;
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
+  -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
+  -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
@@ -292,15 +314,19 @@ header .menu > div {
   width: 200vw;
   height: 200vw;
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-flex: 0;
+  -webkit-flex: none;
       -ms-flex: none;
           flex: none;
   -webkit-box-align: center;
+  -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
+  -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-transform: scale(0);
@@ -496,6 +522,7 @@ header .menu > div > div ul li .active:hover::after {
 }
 
 #login .card input, #register .card input {
+  -webkit-appearance: none;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   color: #1b5e90;
@@ -511,22 +538,27 @@ header .menu > div > div ul li .active:hover::after {
 }
 
 #login .card input::-webkit-input-placeholder, #register .card input::-webkit-input-placeholder {
+  -webkit-appearance: none;
   padding: 0 0;
 }
 
 #login .card input:-ms-input-placeholder, #register .card input:-ms-input-placeholder {
+  -webkit-appearance: none;
   padding: 0 0;
 }
 
 #login .card input::-ms-input-placeholder, #register .card input::-ms-input-placeholder {
+  -webkit-appearance: none;
   padding: 0 0;
 }
 
 #login .card input::placeholder, #register .card input::placeholder {
+  -webkit-appearance: none;
   padding: 0 0;
 }
 
 #login .card input:focus, #login .card input:focus-within, #register .card input:focus, #register .card input:focus-within {
+  -webkit-appearance: none;
   padding-left: 1em;
 }
 

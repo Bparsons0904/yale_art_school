@@ -44,7 +44,7 @@ export default class HomePage extends Component {
     return (
       <section id="home">
         <figure id="cover">
-          <video src={video_backdrop_small} autoPlay muted loop></video>
+          <video src={video_backdrop_small} autoPlay loop muted playsInline ></video>
         </figure>
         {/* <figure id="logo">
           <img src={logo} alt=""/>

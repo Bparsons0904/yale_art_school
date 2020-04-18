@@ -21,15 +21,16 @@ i {
 input,
 input:focus,
 input:focus-within {
+  -webkit-appearance: none;
   border: none;
   outline: none;
   background-color: $color-light;
 }
 
 input {
+  -webkit-appearance: none;
   border-bottom: solid 1px $color-accent-dark;
   margin: 1em 0;
-  transition: 0.5s;
 }
 
 .text-danger {
@@ -40,6 +41,15 @@ input {
 body {
   font-family: $primary-font;
   background-color: $color-light;
+  -webkit-appearance: none;
+}
+
+// iOS workaround
+form {
+  -webkit-appearance: none;
+  input {
+    -webkit-appearance: none;
+  }
 }
 
 .container {
