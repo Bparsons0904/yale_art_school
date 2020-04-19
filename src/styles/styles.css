@@ -24,7 +24,8 @@ input:focus-within {
   -webkit-appearance: none;
   border: none;
   outline: none;
-  background-color: #f8f8f7;
+  background-color: #00000000;
+  font-size: 1em;
 }
 
 input {
@@ -34,13 +35,18 @@ input {
 }
 
 .text-danger {
-  color: #ce1423;
+  color: #ce1423 !important;
+}
+
+.input-container {
+  padding: 1em 0;
 }
 
 body {
   font-family: "Poppins", sans-serif;
   background-color: #f8f8f7;
   -webkit-appearance: none;
+  width: 100vw;
 }
 
 form {
@@ -52,14 +58,16 @@ form input {
 }
 
 .container {
-  padding: 1em;
+  padding: 1.5em;
+  margin: 0 auto;
 }
 
 .card {
   background-color: #f8f8f7;
-  margin: 0.5em;
+  margin: 3em auto;
+  padding: 2em;
   border-radius: .5em;
-  max-width: 400px;
+  max-width: 300px;
 }
 
 .card-shadow {
@@ -67,14 +75,16 @@ form input {
           box-shadow: 3px 3px 12px 3px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: inset -2px -2px 13px 5px rgba(0, 0, 0, 0.1);
           box-shadow: inset -2px -2px 13px 5px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 2px 2px 9px 3px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 9px 3px rgba(0, 0, 0, 0.2);
 }
 
 .inner-card {
   padding: 1em 0.75em;
-  -webkit-transform: translateY(-2.5em);
-          transform: translateY(-2.5em);
+  -webkit-transform: translateY(-4em);
+          transform: translateY(-4em);
   border-radius: 0.5em;
-  margin-bottom: -2em;
+  margin-bottom: -4em;
   background-color: #6558a8;
   background: -webkit-gradient(linear, left top, left bottom, from(#9993f3), color-stop(40%, #6558a8), to(#6558a8));
   background: linear-gradient(to bottom, #9993f3 0%, #6558a8 40%, #6558a8);
@@ -99,8 +109,10 @@ form input {
 }
 
 .btn-primary {
-  background-color: #5fc74c;
-  border-color: #6558a8;
+  background-color: #6558a8;
+  border: none;
+  background: -webkit-gradient(linear, left top, left bottom, from(#9993f3), color-stop(70%, #6558a8), to(#6558a8));
+  background: linear-gradient(to bottom, #9993f3 0%, #6558a8 70%, #6558a8);
 }
 
 .btn-primary-outline {
@@ -485,6 +497,10 @@ header .menu > div > div ul li .active:hover::after {
   color: #f8f8f7;
 }
 
+#home #title .cta {
+  opacity: 0;
+}
+
 #home #title .button:nth-of-type(1), #home #title .btn-primary:nth-of-type(1), #home #title .btn-primary-outline:nth-of-type(1), #home #title .btn-secondary:nth-of-type(1), #home #title .btn-accent-light:nth-of-type(1), #home #title .btn-accent-dark-outline:nth-of-type(1) {
   margin: auto;
   -ms-grid-row: 2;
@@ -511,58 +527,113 @@ header .menu > div > div ul li .active:hover::after {
   background-color: #5fc74c;
 }
 
-#login p, #register p {
+#login,
+#register {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+#login #watermark,
+#register #watermark {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 100vh;
+  opacity: 0.3;
+}
+
+#login p,
+#register p {
   color: #2d327c;
 }
 
-#login .card, #register .card {
-  margin: 3em auto;
-  max-width: 250px;
-  padding: 1em;
+#login .card,
+#register .card {
+  -webkit-box-shadow: 2px 2px 9px 3px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 9px 3px rgba(0, 0, 0, 0.2);
 }
 
-#login .card input, #register .card input {
+#login .card .input-container .user-input,
+#register .card .input-container .user-input {
   -webkit-appearance: none;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   color: #1b5e90;
-  font-size: 1em;
+  font-size: 1.1em;
   border-color: #5fc74c;
   border: none;
-  padding: 0.5em 1em;
+  margin: 1em auto;
+  padding: 1em 1em;
   width: 100%;
-  max-width: 100%;
   border-radius: 25px;
   -webkit-box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
           box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
 }
 
-#login .card input::-webkit-input-placeholder, #register .card input::-webkit-input-placeholder {
+#login .card .input-container .user-input i,
+#register .card .input-container .user-input i {
+  color: #2d327c;
+  padding-right: 0.5em;
+}
+
+#login .card .input-container .user-input input,
+#register .card .input-container .user-input input {
+  -webkit-appearance: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: block;
+  padding: 0;
+  margin: 0;
+  border: none;
+  width: 100%;
+}
+
+#login .card .input-container .user-input input::-webkit-input-placeholder,
+#register .card .input-container .user-input input::-webkit-input-placeholder {
   -webkit-appearance: none;
   padding: 0 0;
 }
 
-#login .card input:-ms-input-placeholder, #register .card input:-ms-input-placeholder {
+#login .card .input-container .user-input input:-ms-input-placeholder,
+#register .card .input-container .user-input input:-ms-input-placeholder {
   -webkit-appearance: none;
   padding: 0 0;
 }
 
-#login .card input::-ms-input-placeholder, #register .card input::-ms-input-placeholder {
+#login .card .input-container .user-input input::-ms-input-placeholder,
+#register .card .input-container .user-input input::-ms-input-placeholder {
   -webkit-appearance: none;
   padding: 0 0;
 }
 
-#login .card input::placeholder, #register .card input::placeholder {
+#login .card .input-container .user-input input::placeholder,
+#register .card .input-container .user-input input::placeholder {
   -webkit-appearance: none;
   padding: 0 0;
 }
 
-#login .card input:focus, #login .card input:focus-within, #register .card input:focus, #register .card input:focus-within {
+#login .card .input-container .user-input input:focus,
+#login .card .input-container .user-input input:focus-within,
+#register .card .input-container .user-input input:focus,
+#register .card .input-container .user-input input:focus-within {
   -webkit-appearance: none;
-  padding-left: 1em;
 }
 
-#login .card .button, #login .card .btn-primary, #login .card .btn-primary-outline, #login .card .btn-secondary, #login .card .btn-accent-light, #login .card .btn-accent-dark-outline, #register .card .button, #register .card .btn-primary, #register .card .btn-primary-outline, #register .card .btn-secondary, #register .card .btn-accent-light, #register .card .btn-accent-dark-outline {
+#login .card .button, #login .card .btn-primary, #login .card .btn-primary-outline, #login .card .btn-secondary, #login .card .btn-accent-light, #login .card .btn-accent-dark-outline,
+#register .card .button,
+#register .card .btn-primary,
+#register .card .btn-primary-outline,
+#register .card .btn-secondary,
+#register .card .btn-accent-light,
+#register .card .btn-accent-dark-outline {
   width: 100%;
   padding: 0.15em 0;
   margin: 1em 0;
@@ -570,19 +641,27 @@ header .menu > div > div ul li .active:hover::after {
           box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
 }
 
-#login .card .button:hover, #login .card .btn-primary:hover, #login .card .btn-primary-outline:hover, #login .card .btn-secondary:hover, #login .card .btn-accent-light:hover, #login .card .btn-accent-dark-outline:hover, #register .card .button:hover, #register .card .btn-primary:hover, #register .card .btn-primary-outline:hover, #register .card .btn-secondary:hover, #register .card .btn-accent-light:hover, #register .card .btn-accent-dark-outline:hover {
+#login .card .button:hover, #login .card .btn-primary:hover, #login .card .btn-primary-outline:hover, #login .card .btn-secondary:hover, #login .card .btn-accent-light:hover, #login .card .btn-accent-dark-outline:hover,
+#register .card .button:hover,
+#register .card .btn-primary:hover,
+#register .card .btn-primary-outline:hover,
+#register .card .btn-secondary:hover,
+#register .card .btn-accent-light:hover,
+#register .card .btn-accent-dark-outline:hover {
   -webkit-box-shadow: unset;
           box-shadow: unset;
   -webkit-transform: scale(0.98);
           transform: scale(0.98);
 }
 
-#login .card .change-type, #register .card .change-type {
+#login .card .change-type,
+#register .card .change-type {
   font-size: 0.75em;
   color: #1b5e90;
 }
 
-#login .card .change-type a, #register .card .change-type a {
+#login .card .change-type a,
+#register .card .change-type a {
   -webkit-text-decoration: solid;
           text-decoration: solid;
 }
@@ -591,19 +670,35 @@ header .menu > div > div ul li .active:hover::after {
   overflow: hidden;
 }
 
+#chat #watermark {
+  position: fixed;
+  -webkit-transform: scaleY(-50px);
+          transform: scaleY(-50px);
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 100vh;
+  opacity: 0.3;
+}
+
 #chat .chat-area {
-  margin: 2em 0;
-  padding: 1.5em;
+  margin: 4em 0 0;
+  padding: 1.5em 1.5em 0;
   background-color: #f8f8f7;
 }
 
+#chat .chat-area .inner-card {
+  margin-bottom: -2em;
+}
+
 #chat .chat-area .chat-bubble {
-  margin: .5em .3em;
+  margin: 0.5em 0.3em;
   width: 85%;
 }
 
 #chat .chat-area .chat-bubble .chat-name {
-  font-size: .7em;
+  font-size: 0.7em;
   color: #2d327c;
 }
 
@@ -661,8 +756,8 @@ header .menu > div > div ul li .active:hover::after {
 }
 
 #chat form {
-  margin: 4em 0;
-  padding: 1em;
+  margin: 1.5em 0;
+  padding: 0;
 }
 
 #chat form #add-comment {
@@ -670,7 +765,7 @@ header .menu > div > div ul li .active:hover::after {
 }
 
 #chat form #add-comment textarea {
-  padding: .75em;
+  padding: 0.75em;
   font-family: Poppins;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -685,11 +780,40 @@ header .menu > div > div ul li .active:hover::after {
           box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #f8f8f7;
 }
 
+#chat form #add-comment .send-container {
+  display: -ms-inline-grid;
+  display: inline-grid;
+  grid-column: 1fr 1fr;
+  width: 100%;
+}
+
 #chat form #add-comment .btn-accent-light {
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  display: block;
   margin: 1em 0;
   margin-left: auto;
+  -webkit-box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+          box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+}
+
+#chat form #add-comment .btn-accent-light:hover {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+  -webkit-box-shadow: unset;
+          box-shadow: unset;
 }
 
 #chat form #add-comment .posting {
   color: #1b5e90;
+  padding: .5em;
+  display: block;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  font-size: .8em;
+}
+
+#chat form #add-comment .text-info {
+  display: inline-block;
+  font-size: 1.4em;
 }

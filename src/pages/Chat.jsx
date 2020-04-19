@@ -4,6 +4,7 @@
 import React, { Component } from "react";
 import { auth } from "../services/firebase";
 import { db } from "../services/firebase";
+import watermark from "../assets/watermark4.jpg";
 
 export default class Chat extends Component {
   constructor(props) {
@@ -20,7 +21,7 @@ export default class Chat extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.myRef = React.createRef();
-  } 
+  }
 
   // After component is mounted
   async componentDidMount() {
@@ -29,7 +30,7 @@ export default class Chat extends Component {
     for (const element of menuItems) {
       element.classList.remove("active");
     }
-    document.getElementById('menu-item-chat').classList.add("active");
+    document.getElementById("menu-item-chat").classList.add("active");
 
     // Set state to if values have been loaded from DB
     this.setState({ readError: null, loadingChats: true });
@@ -37,19 +38,21 @@ export default class Chat extends Component {
 
     // Get all messages from DB
     try {
-      db.collection("chats").orderBy("timestamp").onSnapshot((querySnapshot) => {
-        // Push sorted items into chats array
-        let chats = [];
-        querySnapshot.forEach((doc) => {
-          chats.push(doc.data());
+      db.collection("chats")
+        .orderBy("timestamp")
+        .onSnapshot((querySnapshot) => {
+          // Push sorted items into chats array
+          let chats = [];
+          querySnapshot.forEach((doc) => {
+            chats.push(doc.data());
+          });
+          // Set state to chats array
+          this.setState({ chats });
+          // Set chatArea height
+          chatArea.scrollBy(0, chatArea.scrollHeight);
+          // Stop loading animaiton
+          this.setState({ loadingChats: false });
         });
-        // Set state to chats array
-        this.setState({ chats });
-        // Set chatArea height
-        chatArea.scrollBy(0, chatArea.scrollHeight);
-        // Stop loading animaiton
-        this.setState({ loadingChats: false });
-    });
     } catch (error) {
       // Display error rmessage and stop loading animaiton if error
       this.setState({ readError: error.message, loadingChats: false });
@@ -74,8 +77,10 @@ export default class Chat extends Component {
         content: this.state.content,
         timestamp: Date.now(),
         uid: this.state.user.uid,
-        name: this.state.user.displayName ? this.state.user.displayName : this.state.user.email
-    })
+        name: this.state.user.displayName
+          ? this.state.user.displayName
+          : this.state.user.email,
+      });
       this.setState({ content: "" });
       chatArea.scrollBy(0, chatArea.scrollHeight);
       // If error display message
@@ -95,59 +100,79 @@ export default class Chat extends Component {
 
   render() {
     return (
-      <section id="chat" className="container">
-        <div className="chat-area card card-shadow" >
-          {/* loading indicator */}
-          {this.state.loadingChats ? (
-            <div className="" role="status">
-              <span className="sr-only">Loading...</span>
-            </div>
-          ) : (
-            ""
-          )}
-          {/* chat area */}
-          <div className="inner-card">
-            <h1>Class Discussion</h1>
-          </div>
-          {this.state.chats.map((chat) => {
-            return (
-              <div
-                className={
-                  "chat-bubble " +
-                  (this.state.user.uid === chat.uid ? "current-user" : "")
-                }
-                key={chat.timestamp}
-              >
-                <p className="chat-name">{chat.name}</p>
-                <p className="chat-text">{chat.content}</p>
-                <p className="chat-time">{this.formatTime(chat.timestamp)}</p>
+      <section id="chat">
+        <div className="container">
+          <img src={watermark} alt="" id="watermark" />
+          <div className="chat-area card card-shadow">
+            {/* loading indicator */}
+            {this.state.loadingChats ? (
+              <div className="" role="status">
+                <span className="sr-only">Loading...</span>
               </div>
-            );
-          })}
-        </div>
-        <form onSubmit={this.handleSubmit} className="card card-shadow" id="addMessage">
-          <div className="inner-card">
+            ) : (
+              ""
+            )}
+            {/* chat area */}
+            <div className="inner-card">
+              <h1>Class Discussion</h1>
+            </div>
+            <div className="chat-container">
+              {this.state.chats.map((chat) => {
+                return (
+                  <div
+                    className={
+                      "chat-bubble " +
+                      (this.state.user.uid === chat.uid ? "current-user" : "")
+                    }
+                    key={chat.timestamp}
+                  >
+                    <p className="chat-name">{chat.name}</p>
+                    <p className="chat-text">{chat.content}</p>
+                    <p className="chat-time">
+                      {this.formatTime(chat.timestamp)}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+            <div>
+              <form onSubmit={this.handleSubmit} id="addMessage">
+                {/* <div className="inner-card">
             <h1>Add to Discussion</h1>
-          </div>
-          <div id="add-comment">
-            <textarea
-              className=""
-              name="content"
-              onChange={this.handleChange}
-              value={this.state.content} ref={this.myRef}
-            ></textarea>
-            {this.state.error ? (
-              <p className="text-danger">{this.state.error}</p>
-            ) : null}
-            <div type="submit" className="btn-accent-light" onClick={this.handleSubmit}>
-              <i className="far fa-paper-plane"></i>Send
+          </div> */}
+                <div id="add-comment">
+                  <textarea
+                    className=""
+                    name="content"
+                    onChange={this.handleChange}
+                    value={this.state.content}
+                    ref={this.myRef}
+                  ></textarea>
+                  {this.state.error ? (
+                    <p className="text-danger">{this.state.error}</p>
+                  ) : null}
+                  <div className="send-container">
+                    <div className="posting">
+                      Posting as:{" "}
+                      <strong className="text-info">
+                        {this.state.user.displayName
+                          ? this.state.user.displayName
+                          : this.state.user.email}
+                      </strong>
+                    </div>
+                    <div
+                      type="submit"
+                      className="btn-accent-light"
+                      onClick={this.handleSubmit}
+                    >
+                      <i className="far fa-paper-plane"></i>Send
+                    </div>
+                  </div>
+                </div>
+              </form>
             </div>
-            <div className="posting">
-              Posting as:{" "}
-              <strong className="text-info">{this.state.user.displayName ? this.state.user.displayName : this.state.user.email}</strong>
-            </div>
           </div>
-        </form>
+        </div>
       </section>
     );
   }

@@ -5,6 +5,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 // Signin methods from firebase
 import { signin, signInWithGoogle, signInWithGitHub } from "../helpers/auth";
+import watermark from "../assets/watermark4.jpg";
 
 export default class Login extends Component {
   constructor() {
@@ -65,19 +66,22 @@ export default class Login extends Component {
     for (const element of menuItems) {
       element.classList.remove("active");
     }
-    document.getElementById('menu-item-login').classList.add("active");
+    document.getElementById("menu-item-login").classList.add("active");
   }
 
   render() {
     return (
-      <section className="container" id="login">
-        <div className="card card-shadow">
+      <section id="login">
+        <div className="container" >
+        <img src={watermark} alt="" id="watermark" />
+        <div className="card">
           <form autoComplete="off" onSubmit={this.handleSubmit}>
             <div className="inner-card">
               <h1>Student and Faculty Login</h1>
             </div>
             <div className="input-container">
-              <div className="email">
+              <div className="user-input">
+                <i className="fa fa-envelope"></i>
                 <input
                   placeholder="Email"
                   name="email"
@@ -86,7 +90,8 @@ export default class Login extends Component {
                   value={this.state.email}
                 />
               </div>
-              <div className="password">
+              <div className="user-input">
+              <i className="fa fa-lock"></i>
                 <input
                   placeholder="Password"
                   name="password"
@@ -101,7 +106,7 @@ export default class Login extends Component {
               {this.state.error ? (
                 <p className="text-danger">{this.state.error}</p>
               ) : null}
-              <div className="btn-accent-light" onClick={this.handleSubmit}>
+              <div className="btn-secondary" onClick={this.handleSubmit}>
                 <i className="far fa-envelope"></i>Email Login
               </div>
             </div>
@@ -126,6 +131,8 @@ export default class Login extends Component {
             </p>
           </form>
         </div>
+        </div>
+
       </section>
     );
   }

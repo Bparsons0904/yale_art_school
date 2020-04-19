@@ -64,6 +64,9 @@
     a {
       color: $color-light;
     }
+    .cta {
+      opacity: 0;
+    }
     .button:nth-of-type(1) {
       margin: auto;
       grid-area: events-btn;

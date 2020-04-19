@@ -1,14 +1,27 @@
 #chat {
   overflow: hidden;
+  #watermark {
+    position: fixed;
+    transform: scaleY(-50px);
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: 100vh;
+    opacity: 0.3;
+  }
   .chat-area {
-    margin: 2em 0;
-    padding: 1.5em;
+    margin: 4em 0 0;
+    padding: 1.5em 1.5em 0;
     background-color: $color-light;
+    .inner-card {
+      margin-bottom: -2em;
+    }
     .chat-bubble {
-      margin: .5em .3em;
+      margin: 0.5em 0.3em;
       width: 85%;
       .chat-name {
-        font-size: .7em;
+        font-size: 0.7em;
         color: $color-dark;
       }
       .chat-text {
@@ -39,18 +52,18 @@
     }
     .current-user {
       margin-left: auto;
-        .chat-text:after {
-          content: " ";
-          position: absolute;
-          width: 0;
-          height: 0;
-          right: -1em;
-          left: auto;
-          bottom: 0;
-          top: auto;
-          border: 1.5em solid;
-          border-color: transparent transparent $color-secondary-light transparent;
-        }
+      .chat-text:after {
+        content: " ";
+        position: absolute;
+        width: 0;
+        height: 0;
+        right: -1em;
+        left: auto;
+        bottom: 0;
+        top: auto;
+        border: 1.5em solid;
+        border-color: transparent transparent $color-secondary-light transparent;
+      }
       .chat-name {
         display: none;
       }
@@ -60,12 +73,12 @@
     }
   }
   form {
-    margin: 4em 0;
-    padding: 1em;
+    margin: 1.5em 0;
+    padding: 0;
     #add-comment {
       width: 100%;
       textarea {
-        padding: .75em;
+        padding: 0.75em;
         font-family: Poppins;
         box-sizing: border-box;
         font-size: 1.1em;
@@ -77,16 +90,34 @@
         border-radius: 0.5em;
         box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px $color-light;
       }
+
+      .send-container {
+        display: inline-grid;
+        grid-column: 1fr 1fr;
+        width: 100%;
+      }
       .btn-accent-light {
+        grid-column-start: 2;
+        display: block;
         margin: 1em 0;
         margin-left: auto;
+        box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+      }
+      .btn-accent-light:hover {
+        transform: scale(.95);
+        box-shadow: unset;
       }
       .posting {
         color: $color-secondary-dark;
+        padding: .5em;
+        display: block;
+        grid-column-start: 1;
+        font-size: .8em;
+      }
+      .text-info {
+        display: inline-block;
+        font-size: 1.4em;
       }
     }
   }
 }
-
-
-

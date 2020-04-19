@@ -5,6 +5,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 // Firebase registration methods
 import { signup, signInWithGoogle, signInWithGitHub } from "../helpers/auth";
+import watermark from "../assets/watermark4.jpg";
 
 export default class SignUp extends Component {
   constructor() {
@@ -60,55 +61,57 @@ export default class SignUp extends Component {
 
   render() {
     return (
-      <section className="container" id="register">
+      <section id="register">
+        <div className="container">
+        <img src={watermark} alt="" id="watermark" />
         <div className="card card-shadow">
           <form onSubmit={this.handleSubmit}>
             <div className="inner-card">
               <h1>User Registration</h1>
             </div>
             <div className="input-container">
-              <div className="email">
+            <div className="user-input">
+                <i className="fa fa-envelope"></i>
                 <input
                   placeholder="Email"
                   name="email"
                   type="email"
                   onChange={this.handleChange}
                   value={this.state.email}
-                ></input>
+                />
               </div>
-            </div>
-            <div>
-              <div className="password">
+              <div className="user-input">
+              <i className="fa fa-lock"></i>
                 <input
                   placeholder="Password"
                   name="password"
                   onChange={this.handleChange}
                   value={this.state.password}
                   type="password"
-                ></input>
+                />
               </div>
             </div>
+            
             <div>
               {this.state.error ? (
                 <p className="text-danger">{this.state.error}</p>
               ) : null}
-              <div className="btn-accent-light" onClick={this.handleSubmit}>
-                Register
+              <div className="btn-secondary" onClick={this.handleSubmit}>
+              <i className="far fa-envelope"></i>Email Register
               </div>
             </div>
-            <p>You can also register with any of these services</p>
             <div
             className="btn btn-secondary"
               onClick={this.googleSignIn}
             >
-              Register with Google
+              <i className="fab fa-google"></i>Google Register
             </div>
             <div
               className="btn btn-secondary"
               type="button"
               onClick={this.githubSignIn}
             >
-              Register with GitHub
+              <i className="fab fa-github"></i>Github Register
             </div>
             <hr></hr>
             <p className="change-type">
@@ -116,6 +119,8 @@ export default class SignUp extends Component {
             </p>
           </form>
         </div>
+        </div>
+        
       </section>
     );
   }
