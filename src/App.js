@@ -15,6 +15,10 @@ import Home from "./pages/Home";
 import Chat from "./pages/Chat";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import Events from "./pages/Events";
+import Gallery from "./pages/Gallery";
+import About from "./pages/About";
+import News from "./pages/News";
 import Header from "./components/Header";
 // import Footer from './components/Footer';
 
@@ -86,10 +90,22 @@ class App extends Component {
     ) : (
       <Router basename="/yaleart/">
         {/* Always display header */}
-        <Route exact path="*" render={props => <Header isAuth={this.state.authenticated} {...props} />}/>
+        <Route
+          exact
+          path="*"
+          render={(props) => (
+            <Header isAuth={this.state.authenticated} {...props} />
+          )}
+        />
         {/* Route switch based on URL path */}
         <Switch>
-          <Route exact path="/" render={props => <Home isAuth={this.state.authenticated} {...props} />}/>
+          <Route
+            exact
+            path="/"
+            render={(props) => (
+              <Home isAuth={this.state.authenticated} {...props} />
+            )}
+          />
           <PrivateRoute
             path="/chat"
             authenticated={this.state.authenticated}
@@ -105,6 +121,18 @@ class App extends Component {
             authenticated={this.state.authenticated}
             component={Login}
           />
+          <Route path="/gallery">
+            <Gallery />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/news">
+            <News />
+          </Route>
+          <Route path="/events">
+            <Events />
+          </Route>
         </Switch>
         {/* <Footer></Footer> */}
       </Router>

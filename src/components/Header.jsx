@@ -109,6 +109,16 @@ export default class Header extends Component {
                   <li>
                     <Link
                       className="menu-item"
+                      to="/gallery"
+                      id="menu-item-event"
+                      onClick={toggleCheckbox()}
+                    >
+                      Event
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className="menu-item"
                       to="/about"
                       id="menu-item-about"
                       onClick={toggleCheckbox()}

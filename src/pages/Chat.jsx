@@ -15,7 +15,7 @@ export default class Chat extends Component {
       content: "",
       readError: null,
       writeError: null,
-      loadingChats: false,
+      loadingChats: true,
     };
     // Bind to variables
     this.handleChange = this.handleChange.bind(this);
@@ -101,22 +101,29 @@ export default class Chat extends Component {
   render() {
     return (
       <section id="chat">
+        {/* loading indicator */}
+        {this.state.loadingChats ? (
+          <div className="loader-container">
+            <div class="sk-chase">
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
         <div className="container">
           <img src={watermark} alt="" id="watermark" />
           <div className="chat-area card card-shadow">
-            {/* loading indicator */}
-            {this.state.loadingChats ? (
-              <div className="" role="status">
-                <span className="sr-only">Loading...</span>
-              </div>
-            ) : (
-              ""
-            )}
             {/* chat area */}
             <div className="inner-card">
               <h1>Class Discussion</h1>
             </div>
-            <div className="chat-container">
+            <div className={this.state.loadingChats ? ("chat-container") : ("chat-container chats-loaded")}>
               {this.state.chats.map((chat) => {
                 return (
                   <div
