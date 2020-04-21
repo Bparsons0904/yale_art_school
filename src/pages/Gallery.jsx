@@ -2,8 +2,8 @@
 
 // Import required files
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { gsap } from "gsap";
+// import { Link } from "react-router-dom";
+// import { gsap } from "gsap";
 import Swiper from "swiper";
 import featured1 from "../assets/featured1.jpg";
 import featured2 from "../assets/featured2.jpg";
@@ -26,6 +26,7 @@ import recent8 from "../assets/recent8.jpg";
 import recent9 from "../assets/recent9.jpg";
 import recent10 from "../assets/recent10.jpg";
 import "swiper/css/swiper.css";
+import watermark from "../assets/watermark4.jpg";
 // const cta = useRef(null);
 // useEffect(() => {
 //   gsap.to(
@@ -145,6 +146,7 @@ export default class GalleryPage extends Component {
 
     return (
       <section id="gallery">
+        <img src={watermark} alt="" id="watermark" />
         <div id="modal">
           <div className="modal-card">
             <div onClick={modalClose} className="modal-close">

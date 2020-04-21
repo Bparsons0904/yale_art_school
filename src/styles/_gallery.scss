@@ -5,6 +5,15 @@
   padding: 1em;
   max-width: 100%;
   box-sizing: border-box;
+  overflow-x: hidden;
+  #watermark {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    opacity: .2;
+  }
   .swiper-container {
     width: 100%;
     max-width: 100%;

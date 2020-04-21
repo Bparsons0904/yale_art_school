@@ -109,11 +109,11 @@ export default class Header extends Component {
                   <li>
                     <Link
                       className="menu-item"
-                      to="/gallery"
-                      id="menu-item-event"
+                      to="/events"
+                      id="menu-item-events"
                       onClick={toggleCheckbox()}
                     >
-                      Event
+                      Events
                     </Link>
                   </li>
                   <li>

@@ -1,0 +1,148 @@
+#events {
+  color: $color-primary;
+  position: relative;
+  #watermark {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0.25;
+  }
+  #banner {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1em;
+    opacity: 1;
+  }
+  // .container {
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  // }
+  .event-card {
+    background-color: $color-secondary-dark;
+    padding: 0.5em;
+    margin-bottom: 2em;
+    border-radius: 0.25em;
+    // box-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
+    position: relative;
+    h2 {
+      text-align: center;
+      padding: 0.5em;
+      font-size: 1.2em;
+      span {
+        // text-decoration: underline;
+        font-size: 1.5em;
+        position: relative;
+      }
+      span::after {
+        position: absolute;
+        content: "";
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 4px;
+        width: 80%;
+        margin: auto;
+        background-color: $color-primary-light;
+      }
+    }
+    hr {
+      width: 80%;
+    }
+    .event-details {
+      width: 100%;
+      padding: 0.5em 0;
+      display: grid;
+      align-items: center;
+      grid-template-areas:
+        "image date"
+        "image time"
+        "image address";
+      img {
+        display: block;
+        width: 5em;
+        height: 5em;
+        margin: auto;
+        // padding: .5em 1em .5em 0;
+        border: 0.5em;
+        border-radius: 50%;
+        object-fit: cover;
+        grid-area: image;
+      }
+      p {
+        font-size: 0.7em;
+        align-content: center;
+      }
+      .date {
+        grid-area: date;
+      }
+      .time {
+        grid-area: time;
+      }
+      .address {
+        grid-area: address;
+      }
+    }
+    .event-primary {
+      padding: 0.5em;
+    }
+    .event-info {
+      padding: 0.5em;
+      font-size: 0.8em;
+    }
+    .expanded-details {
+      padding: 0.5em;
+      font-size: 0.8em;
+      height: 0px;
+      overflow-y: hidden;
+      display: none;
+      transition: 0.5s;
+    }
+    .extend-button {
+      width: 80%;
+      height: 2em;
+      text-align: center;
+      line-height: 2em;
+      font-size: 1.1em;
+      font-weight: bold;
+      color: $color-light;
+      background-color: $color-secondary-light;
+      margin: 0.5em auto;
+      border-radius: 1em;
+      i {
+        padding: 0 0 0 0.5em;
+      }
+    }
+
+    .hide-button {
+      display: none;
+      @extend .extend-button;
+      i {
+        padding: 0 0.5em 0 0;
+      }
+    }
+  }
+  .event-card:before,
+  .event-card:after {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    bottom: 15px;
+    left: 10px;
+    width: 50%;
+    top: 80%;
+    max-width: 300px;
+    background: #777777;
+    box-shadow: 0 15px 10px #777777;
+    transform: rotate(-3deg);
+    opacity: 0;
+  }
+  .event-card:after {
+    transform: rotate(3deg);
+    right: 10px;
+    left: auto;
+    opacity: 0;
+  }
+}

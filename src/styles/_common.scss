@@ -52,6 +52,11 @@ body {
   // min-height: 100vh;
   // overflow: hidden;
   overflow-x: hidden;
+  margin-top: 50px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 // iOS workaround
