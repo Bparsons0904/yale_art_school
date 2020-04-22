@@ -20,6 +20,7 @@ import Gallery from "./pages/Gallery";
 import About from "./pages/About";
 import News from "./pages/News";
 import Header from "./components/Header";
+import ScrollToTop from "./components/ScrollToTop";
 // import Footer from './components/Footer';
 
 // Import CSS sheet
@@ -66,6 +67,7 @@ class App extends Component {
 
   // Once component is mounted, check on user authentication
   componentDidMount() {
+    window.scrollTo(0, 0);
     // Watch for authentication changes
     auth().onAuthStateChanged((user) => {
       if (user) {
@@ -89,6 +91,7 @@ class App extends Component {
       </div>
     ) : (
       <Router basename="/yaleart/">
+        <ScrollToTop>
         {/* Always display header */}
         <Route
           exact
@@ -135,6 +138,7 @@ class App extends Component {
           </Route>
         </Switch>
         {/* <Footer></Footer> */}
+        </ScrollToTop>
       </Router>
     );
   }

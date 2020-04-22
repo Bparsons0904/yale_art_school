@@ -165,6 +165,15 @@ form {
   border-color: $color-accent-dark;
 }
 
+#watermark {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: auto;
+  opacity: .2;
+}
+
 .loader-container {
   margin: 4em auto;
   .sk-chase {

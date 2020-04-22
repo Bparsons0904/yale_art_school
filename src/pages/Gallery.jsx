@@ -3,7 +3,7 @@
 // Import required files
 import React, { Component } from "react";
 // import { Link } from "react-router-dom";
-// import { gsap } from "gsap";
+import { gsap, TimelineLite } from "gsap";
 import Swiper from "swiper";
 import featured1 from "../assets/featured1.jpg";
 import featured2 from "../assets/featured2.jpg";
@@ -27,6 +27,7 @@ import recent9 from "../assets/recent9.jpg";
 import recent10 from "../assets/recent10.jpg";
 import "swiper/css/swiper.css";
 import watermark from "../assets/watermark4.jpg";
+import featured from "../assets/card_inner_painting.png";
 // const cta = useRef(null);
 // useEffect(() => {
 //   gsap.to(
@@ -35,6 +36,7 @@ import watermark from "../assets/watermark4.jpg";
 //     { color: "#23452a" }
 //   );
 // }, []);
+let tl = new TimelineLite();
 
 function loadModal(modal, e) {
   modal.style.display = "unset";
@@ -45,28 +47,37 @@ function loadModal(modal, e) {
   document.getElementById("owner").innerHTML = e.target.dataset.owner;
   document.getElementById("info").innerHTML = e.target.dataset.info;
   //   console.log(e);
-  console.log(e.target.dataset.date);
-
+  gsap.timeline()
+  .to(".swiper-container", .4, {opacity: 0})
+  .to(modal, .4, {opacity: 1})
+  .to("#modal-image", 1, {ease: "back.out(1.7)", x: 0});
   // console.log(this.modalImage);
 }
 
 function modalClose() {
-  document.getElementById("modal").style.display = "none";
+  // let tl = new TimelineLite();
+  tl.to("#modal", .4, {opacity: 0})
+  .to(".swiper-container", .4, {opacity: 1})
+  .to("#modal", 0, {display: "none"})
+  .to("#modal-image", {x: 500});
+  // document.getElementById("modal").style.display = "none";
 }
 
 export default class GalleryPage extends Component {
   constructor(props) {
     super(props);
-    this.headerRef = null;
-    this.headerLoader = null;
-    this.buttonRef = [];
-    this.buttonLoader = null;
-    this.swiperContainer = null;
-    this.swiperNext = null;
-    this.swiperPrev = null;
-    this.swiperPagination = null;
-    this.swiperContainer2 = null;
-    this.swiperPagination2 = null;
+    // this.tl = new TimelineLite({ delay: 0.3 });
+    this.headerRef = [];
+    this.headerImg = null;
+    // this.headerLoader = null;
+    // this.buttonRef = [];
+    // this.buttonLoader = null;
+    // this.swiperContainer = null;
+    // this.swiperNext = null;
+    // this.swiperPrev = null;
+    // this.swiperPagination = null;
+    // this.swiperContainer2 = null;
+    // this.swiperPagination2 = null;
     this.modalImage = null;
   }
   // After component loads
@@ -92,7 +103,8 @@ export default class GalleryPage extends Component {
     let modal = document.getElementById("modal");
     // this.modalImage = document.getElementById('model-image');
     modal.style.display = "none";
-    let swiper = new Swiper(".swiper-container", {
+    // let swiper =
+    new Swiper(".swiper-container", {
       effect: "coverflow",
       grabCursor: true,
       centeredSlides: true,
@@ -112,6 +124,8 @@ export default class GalleryPage extends Component {
         maxRatio: 5,
       },
     });
+    // console.log(swiper);
+
     var swiperSlide = document.getElementsByClassName("swiper-slide");
     for (var index = 0; index < swiperSlide.length; index++) {
       swiperSlide[index].addEventListener("click", function (e) {
@@ -139,6 +153,8 @@ export default class GalleryPage extends Component {
     //     type: "progressbar",
     //   },
     // });
+
+    this.headerImg = gsap.fromTo(this.headerRef, 1, {opacity: 0}, {opacity:1});
   }
 
   render() {
@@ -162,8 +178,12 @@ export default class GalleryPage extends Component {
           </div>
         </div>
         <div className="swiper-container">
-          <h1>Featured</h1>
-          <div className="swiper-wrapper">
+          <div className="title-container" ref={div => this.headerRef[0] = div}>
+            <img src={featured} alt="" />
+            <h1>Featured<br/>Work</h1>
+          </div>
+
+          <div className="swiper-wrapper" ref={div => this.headerRef[1] = div}>
             <div className="swiper-slide">
               <div className="swiper-zoom-container">
                 <img
@@ -210,6 +230,9 @@ export default class GalleryPage extends Component {
                   data-date="2019"
                   data-info="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rhoncus hendrerit felis, quis posuere nisi cursus sit amet. Curabitur rutrum semper est, id fringilla nisi vestibulum pulvinar. Integer dignissim ultricies tortor, vel condimentum augue eleifend euismod. Quisque feugiat ultrices ex eu pharetra. Pellentesque interdum lobortis felis quis rhoncus. Suspendisse potenti. Integer quis mi justo."
                 />
+                <span className="expand">
+                  <i className="fas fa-expand"></i>
+                </span>
               </div>
             </div>
             <div className="swiper-slide">
@@ -285,10 +308,16 @@ export default class GalleryPage extends Component {
               </div>
             </div>
           </div>
+          <div className="expand">
+            <i className="fas fa-expand"></i>Select Image For Additional Details
+          </div>
           <div className="swiper-pagination"></div>
         </div>
         <div className="swiper-container">
-          <h1>Recent</h1>
+        <div className="title-container" ref={div => this.headerRef[2] = div}>
+            <img src={featured} alt="" />
+            <h1>Recent<br/>Work</h1>
+          </div>
           <div className="swiper-wrapper">
             <div className="swiper-slide">
               <div className="swiper-zoom-container">
@@ -410,6 +439,9 @@ export default class GalleryPage extends Component {
                 />
               </div>
             </div>
+          </div>
+          <div className="expand">
+            <i className="fas fa-expand"></i>Select Image For Additional Details
           </div>
           <div className="swiper-pagination"></div>
         </div>

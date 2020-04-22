@@ -2,7 +2,7 @@
 
 // Import required files
 import React, { Component } from "react";
-import { gsap, TimelineLite } from "gsap/all";
+import { gsap, TimelineLite } from "gsap";
 import { CSSRulePlugin } from "gsap/CSSRulePlugin";
 
 import banner from "../assets/banner.gif";
@@ -65,24 +65,24 @@ export default class GalleryPage extends Component {
       });
     }
 
-    this.eventElementsBefore = CSSRulePlugin.getRule(".event-card:before");
-    this.eventElementsAfter = CSSRulePlugin.getRule(".event-card:after");
-    this.tlPs.staggerTo(
-      this.eventElementsBefore,
-      0.5,
-      {
-        cssRule: { autoAlpha: 1 },
-      },
-      0.3
-    );
-    this.tlPs.staggerTo(
-      this.eventElementsAfter,
-      0.5,
-      {
-        cssRule: { autoAlpha: 1 },
-      },
-      0.3
-    );
+    // this.eventElementsBefore = CSSRulePlugin.getRule(".event-card:before");
+    // this.eventElementsAfter = CSSRulePlugin.getRule(".event-card:after");
+    // this.tlPs.staggerTo(
+    //   this.eventElementsBefore,
+    //   0.5,
+    //   {
+    //     cssRule: { autoAlpha: 1 },
+    //   },
+    //   0.3
+    // );
+    // this.tlPs.staggerTo(
+    //   this.eventElementsAfter,
+    //   0.5,
+    //   {
+    //     cssRule: { autoAlpha: 1 },
+    //   },
+    //   0.3
+    // );
     this.tl.staggerFrom(this.eventElements, 0.5, { autoAlpha: 0, y: 50 }, 0.3);
     // gsap.from(entry.target, 1, { y: -200 });
     let observer = new IntersectionObserver((entries, observer) => { 
