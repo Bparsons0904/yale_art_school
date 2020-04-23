@@ -8,6 +8,7 @@
     width: 80%;
     margin: 1em auto 2em;
     position: relative;
+    
     img {
       width: 100%;
       height: auto;
@@ -35,6 +36,10 @@
     max-width: 100%;
     padding-bottom: 1em;
     z-index: unset;
+    // transform: translateX(500px);
+    opacity: 0;
+  }
+  .swipper-wrapper {
     
   }
   .swiper-slide {

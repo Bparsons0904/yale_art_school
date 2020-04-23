@@ -73,8 +73,8 @@ form input {
 
 .card {
   background-color: #f8f8f7;
-  margin: 3em auto;
-  padding: 2em;
+  margin: 1em auto;
+  padding: 1em;
   border-radius: 0.5em;
   max-width: 300px;
 }
@@ -148,6 +148,27 @@ form input {
   border-color: #5fc74c;
 }
 
+.extend-button, .hide-button {
+  width: 80%;
+  height: 2em;
+  text-align: center;
+  line-height: 2em;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #f8f8f7;
+  background-color: #2a80c0;
+  margin: 0.5em auto;
+  border-radius: 1em;
+}
+
+.extend-button i, .hide-button i {
+  padding: 0 0 0 0.5em;
+}
+
+.hide-button i {
+  padding: 0 0.5em 0 0;
+}
+
 #watermark {
   position: fixed;
   top: 50px;
@@ -155,6 +176,7 @@ form input {
   width: 100%;
   height: auto;
   opacity: .2;
+  z-index: -1;
 }
 
 .loader-container {
@@ -1032,6 +1054,7 @@ header .menu > div > div ul li .active:hover::after {
   max-width: 100%;
   padding-bottom: 1em;
   z-index: unset;
+  opacity: 0;
 }
 
 #gallery .swiper-slide {
@@ -1149,6 +1172,8 @@ header .menu > div > div ul li .active:hover::after {
   margin-bottom: 2em;
   border-radius: 0.25em;
   position: relative;
+  -webkit-box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.5);
 }
 
 #events .event-card h2 {
@@ -1250,53 +1275,89 @@ header .menu > div > div ul li .active:hover::after {
   transition: 0.5s;
 }
 
-#events .event-card .extend-button, #events .event-card .hide-button {
-  width: 80%;
-  height: 2em;
+#news {
+  padding: 1em;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#news h1 {
   text-align: center;
-  line-height: 2em;
-  font-size: 1.1em;
-  font-weight: bold;
+  font-size: 2em;
+  color: #6558a8;
+}
+
+#news .news-article {
+  width: 100%;
+}
+
+#news .news-article .card {
+  background-color: #9993f3;
+}
+
+#news .news-article h1 {
+  font-size: 2em;
   color: #f8f8f7;
-  background-color: #2a80c0;
-  margin: 0.5em auto;
+  text-align: center;
+  font-weight: bold;
+}
+
+#news .news-article .card-image-container {
+  width: 100%;
+  margin: 1em auto;
+}
+
+#news .news-article .card-image-container img {
+  width: 100%;
+  height: auto;
+  -webkit-box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+}
+
+#news .news-article h3 {
+  text-align: center;
+  margin: 1em 0 1.5em;
+}
+
+#news .news-article p {
+  color: #f8f8f7;
+  font-size: .8em;
+  margin: 1em 0;
+}
+
+#news .news-article .inline-image {
+  width: 100%;
+  height: auto;
+}
+
+#news .news-article .links {
+  padding: .3em;
+  border: solid 1px #f8f8f7;
   border-radius: 1em;
+  margin-top: 1em;
 }
 
-#events .event-card .extend-button i, #events .event-card .hide-button i {
-  padding: 0 0 0 0.5em;
+#news .news-article .links h4 {
+  padding: 1em 0 1em;
+  text-align: center;
 }
 
-#events .event-card .hide-button {
-  display: none;
+#news .news-article .links a {
+  text-decoration: none;
+  margin: 1em 0;
+  color: #f8f8f7;
+  font-size: .8em;
+  text-align: center;
+  display: block;
 }
 
-#events .event-card .hide-button i {
-  padding: 0 0.5em 0 0;
+#news .extend-button, #news .hide-button {
+  background-color: #6558a8;
 }
 
-#events .event-card:before,
-#events .event-card:after {
-  z-index: -1;
-  position: absolute;
-  content: "";
-  bottom: 15px;
-  left: 10px;
-  width: 50%;
-  top: 80%;
-  max-width: 300px;
-  background: #777777;
-  -webkit-box-shadow: 0 15px 10px #777777;
-          box-shadow: 0 15px 10px #777777;
-  -webkit-transform: rotate(-3deg);
-          transform: rotate(-3deg);
-  opacity: 0;
-}
-
-#events .event-card:after {
-  -webkit-transform: rotate(3deg);
-          transform: rotate(3deg);
-  right: 10px;
-  left: auto;
-  opacity: 0;
+#news .expanded-details {
+  margin-top: .2em;
+  height: 0;
+  overflow: hidden;
 }

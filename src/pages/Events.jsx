@@ -3,7 +3,7 @@
 // Import required files
 import React, { Component } from "react";
 import { gsap, TimelineLite } from "gsap";
-import { CSSRulePlugin } from "gsap/CSSRulePlugin";
+// import { CSSRulePlugin } from "gsap/CSSRulePlugin";
 
 import banner from "../assets/banner.gif";
 // import placeholder from "../assets/person-placeholder.jpg";
@@ -41,7 +41,7 @@ export default class GalleryPage extends Component {
     this.tl = new TimelineLite({ delay: 0.3 });
     this.tlPs = new TimelineLite({ delay: 0.5 });
     this.cardsTween = null;
-    gsap.registerPlugin(CSSRulePlugin);
+    // gsap.registerPlugin(CSSRulePlugin);
   }
 
   componentDidMount() {
@@ -88,11 +88,11 @@ export default class GalleryPage extends Component {
     let observer = new IntersectionObserver((entries, observer) => { 
       entries.forEach(entry => {
       if(entry.isIntersecting){
-          gsap.fromTo(entry.target, { y: 300, opacity: 0 }, {y: 0, opacity: 1,duration: 1.5});
+          gsap.fromTo(entry.target, { y: 300}, {y: 0,duration: 1, delay: .5});
           observer.unobserve(entry.target);
       }
       });
-  }, {rootMargin: "0px 0px 300px 0px"});
+  }, {rootMargin: "0px 0px 350px 0px"});
     this.scrollEvents = document.querySelectorAll(".scroll-event");
     this.scrollEvents.forEach((card) => {
       observer.observe(card);

@@ -154,7 +154,7 @@ export default class GalleryPage extends Component {
     //   },
     // });
 
-    this.headerImg = gsap.fromTo(this.headerRef, 1, {opacity: 0}, {opacity:1});
+    this.headerImg = gsap.to(this.headerRef, 1, {opacity: 1});
   }
 
   render() {
@@ -177,13 +177,13 @@ export default class GalleryPage extends Component {
             </div>
           </div>
         </div>
-        <div className="swiper-container">
-          <div className="title-container" ref={div => this.headerRef[0] = div}>
+        <div className="swiper-container" ref={div => this.headerRef[0] = div}>
+          <div className="title-container" >
             <img src={featured} alt="" />
             <h1>Featured<br/>Work</h1>
           </div>
 
-          <div className="swiper-wrapper" ref={div => this.headerRef[1] = div}>
+          <div className="swiper-wrapper" >
             <div className="swiper-slide">
               <div className="swiper-zoom-container">
                 <img
@@ -313,8 +313,8 @@ export default class GalleryPage extends Component {
           </div>
           <div className="swiper-pagination"></div>
         </div>
-        <div className="swiper-container">
-        <div className="title-container" ref={div => this.headerRef[2] = div}>
+        <div className="swiper-container" ref={div => this.headerRef[1] = div}>
+        <div className="title-container">
             <img src={featured} alt="" />
             <h1>Recent<br/>Work</h1>
           </div>
