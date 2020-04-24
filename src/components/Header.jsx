@@ -19,28 +19,21 @@ export default class Header extends Component {
     // Set if user is logged in
     const { isAuth } = this.props;
     let loggedInDisplay;
+    let loggedOutDisplay;
     // If logged in, display logout and user restricted links
     // otherwise display login menu
     if (isAuth) {
-      loggedInDisplay = (
-        <div>
-          <li>
-            {/* Logout of authentication and close window */}
-            <Link to="/" className="menu-item" onClick={() => auth().signOut().then(toggleCheckbox())}>
-              Logout
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="menu-item"
-              to="/chat"
-              id="menu-item-chat"
-              onClick={toggleCheckbox()}
-            >
-              Chat
-            </Link>
-          </li>
-        </div>
+      loggedOutDisplay = (
+        <li>
+          {/* Logout of authentication and close window */}
+          <Link
+            to="/"
+            className="menu-item"
+            onClick={() => auth().signOut().then(toggleCheckbox())}
+          >
+            Logout
+          </Link>
+        </li>
       );
     } else {
       loggedInDisplay = (
@@ -119,6 +112,16 @@ export default class Header extends Component {
                   <li>
                     <Link
                       className="menu-item"
+                      to="/chat"
+                      id="menu-item-chat"
+                      onClick={toggleCheckbox()}
+                    >
+                      Chat
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className="menu-item"
                       to="/about"
                       id="menu-item-about"
                       onClick={toggleCheckbox()}
@@ -126,6 +129,7 @@ export default class Header extends Component {
                       About
                     </Link>
                   </li>
+                  {loggedOutDisplay}
                 </ul>
               </div>
             </div>

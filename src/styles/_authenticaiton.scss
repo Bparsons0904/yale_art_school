@@ -3,17 +3,18 @@
 #register {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  overflow: hidden;
-  #watermark {
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    width: auto;
-    height: 100vh;
-    opacity: 0.3;
-  }
+  padding-top: 2em;
+  // min-height: 100vh;
+  // overflow-x: hidden;
+  // #watermark {
+  //   position: absolute;
+  //   z-index: -1;
+  //   top: 0;
+  //   left: 0;
+  //   width: auto;
+  //   height: 100vh;
+  //   opacity: 0.3;
+  // }
   p {
     color: $color-dark;
   }

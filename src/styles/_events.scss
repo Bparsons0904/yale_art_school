@@ -94,14 +94,14 @@
       font-size: 0.8em;
     }
     .expanded-details {
-      padding: 0.5em;
       font-size: 0.8em;
-      height: 0px;
-      overflow-y: hidden;
-      display: none;
-      transition: 0.5s;
+      height: 0;
+      overflow: hidden;
+      margin-top: 0.2em;
+      p {
+        padding: 0.5em;
+      }
     }
-    
   }
   // .event-card:before,
   // .event-card:after {

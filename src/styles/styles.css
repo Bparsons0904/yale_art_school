@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;800&display=swap");
 body,
 h1,
 h2,
@@ -16,6 +16,14 @@ a {
 
 i {
   padding-right: 1em;
+}
+
+h1 {
+  font-weight: 600;
+}
+
+h3 {
+  font-weight: 500;
 }
 
 input,
@@ -76,7 +84,7 @@ form input {
   margin: 1em auto;
   padding: 1em;
   border-radius: 0.5em;
-  max-width: 300px;
+  max-width: 400px;
 }
 
 .card-shadow {
@@ -102,6 +110,7 @@ form input {
 .inner-card h1 {
   color: #f8f8f7;
   text-align: center;
+  font-weight: 600;
 }
 
 .button, .btn-primary, .btn-primary-outline, .btn-secondary, .btn-accent-light, .btn-accent-dark-outline {
@@ -111,7 +120,7 @@ form input {
   text-align: center;
   line-height: 2em;
   padding: 0.2em 1.5em;
-  font-weight: bold;
+  font-weight: 500;
   border: solid 2px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -127,6 +136,7 @@ form input {
 .btn-primary-outline {
   background-color: #5fc74c;
   border-color: #6558a8;
+  background-color: #00000000;
 }
 
 .btn-secondary {
@@ -144,7 +154,7 @@ form input {
 }
 
 .btn-accent-dark-outline {
-  background-color: #5fc74c;
+  background-color: #00000000;
   border-color: #5fc74c;
 }
 
@@ -154,7 +164,7 @@ form input {
   text-align: center;
   line-height: 2em;
   font-size: 1.1em;
-  font-weight: bold;
+  font-weight: 600;
   color: #f8f8f7;
   background-color: #2a80c0;
   margin: 0.5em auto;
@@ -335,7 +345,7 @@ header {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  background-color: #e6e6e6;
+  background-color: #c9c9c9;
   width: 100vw;
   height: 50px;
   -webkit-box-pack: justify;
@@ -363,11 +373,13 @@ header #title-group img {
 
 header #title-group h1 {
   padding-left: 1em;
-  font-size: 1.4em;
+  font-size: 1.2em;
   line-height: 50px;
+  letter-spacing: .05em;
   text-transform: uppercase;
   color: #6558a8;
   font-weight: 800;
+  font-family: "Playfair Display", serif;
 }
 
 header .menu-wrap {
@@ -572,7 +584,7 @@ header .menu > div > div ul li a:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
   color: #5fc74c;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 header .menu > div > div ul li .active::after {
@@ -677,6 +689,7 @@ header .menu > div > div ul li .active:hover::after {
   color: #f8f8f7;
   font-size: 4em;
   text-align: center;
+  font-weight: 500;
   padding: 0.5em;
   -ms-grid-row: 1;
   -ms-grid-column: 1;
@@ -722,19 +735,7 @@ header .menu > div > div ul li .active:hover::after {
 #register {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  overflow: hidden;
-}
-
-#login #watermark,
-#register #watermark {
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  width: auto;
-  height: 100vh;
-  opacity: 0.3;
+  padding-top: 2em;
 }
 
 #login p,
@@ -889,13 +890,13 @@ header .menu > div > div ul li .active:hover::after {
 }
 
 #chat .chat-area .chat-bubble .chat-name {
-  font-size: 0.7em;
+  font-size: 0.6em;
   color: #2d327c;
 }
 
 #chat .chat-area .chat-bubble .chat-text {
   position: relative;
-  font-size: 1em;
+  font-size: .8em;
   background-color: #1b5e90;
   padding: 0.5em 1em;
   border-radius: 0.25em;
@@ -993,8 +994,8 @@ header .menu > div > div ul li .active:hover::after {
 }
 
 #chat form #add-comment .btn-accent-light:hover {
-  -webkit-transform: scale(0.95);
-          transform: scale(0.95);
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
   -webkit-box-shadow: unset;
           box-shadow: unset;
 }
@@ -1041,7 +1042,7 @@ header .menu > div > div ul li .active:hover::after {
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  letter-spacing: .2em;
+  letter-spacing: 0.2em;
   font-size: 1.7em;
   color: #f8f8f7;
   text-align: center;
@@ -1067,13 +1068,13 @@ header .menu > div > div ul li .active:hover::after {
 }
 
 #gallery .expand {
-  margin: .7em auto;
+  margin: 0.7em auto;
   text-align: center;
-  font-size: .8em;
+  font-size: 0.8em;
   width: 100%;
   color: #1b5e90;
   text-transform: capitalize;
-  font-weight: 800;
+  font-weight: 500;
 }
 
 #gallery .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
@@ -1090,6 +1091,7 @@ header .menu > div > div ul li .active:hover::after {
   position: fixed;
   display: none;
   top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
   min-height: 100vh;
@@ -1097,6 +1099,7 @@ header .menu > div > div ul li .active:hover::after {
   background: #f8f8f7;
   z-index: 1;
   opacity: 0;
+  overflow-y: scroll;
 }
 
 #modal .modal-card {
@@ -1108,9 +1111,7 @@ header .menu > div > div ul li .active:hover::after {
   font-size: 1.5em;
   float: right;
   margin: 1em 0;
-  font-weight: bolder;
-  -webkit-transition: .4s;
-  transition: .4s;
+  font-weight: 600;
 }
 
 #modal .modal-card .modal-close i {
@@ -1266,13 +1267,14 @@ header .menu > div > div ul li .active:hover::after {
 }
 
 #events .event-card .expanded-details {
-  padding: 0.5em;
   font-size: 0.8em;
-  height: 0px;
-  overflow-y: hidden;
-  display: none;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  height: 0;
+  overflow: hidden;
+  margin-top: 0.2em;
+}
+
+#events .event-card .expanded-details p {
+  padding: 0.5em;
 }
 
 #news {
@@ -1300,7 +1302,6 @@ header .menu > div > div ul li .active:hover::after {
   font-size: 2em;
   color: #f8f8f7;
   text-align: center;
-  font-weight: bold;
 }
 
 #news .news-article .card-image-container {
@@ -1322,7 +1323,7 @@ header .menu > div > div ul li .active:hover::after {
 
 #news .news-article p {
   color: #f8f8f7;
-  font-size: .8em;
+  font-size: 0.8em;
   margin: 1em 0;
 }
 
@@ -1332,7 +1333,7 @@ header .menu > div > div ul li .active:hover::after {
 }
 
 #news .news-article .links {
-  padding: .3em;
+  padding: 0.3em;
   border: solid 1px #f8f8f7;
   border-radius: 1em;
   margin-top: 1em;
@@ -1347,7 +1348,7 @@ header .menu > div > div ul li .active:hover::after {
   text-decoration: none;
   margin: 1em 0;
   color: #f8f8f7;
-  font-size: .8em;
+  font-size: 0.8em;
   text-align: center;
   display: block;
 }
@@ -1357,7 +1358,91 @@ header .menu > div > div ul li .active:hover::after {
 }
 
 #news .expanded-details {
-  margin-top: .2em;
+  margin-top: 0.2em;
   height: 0;
   overflow: hidden;
+}
+
+#about {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#about #welcome-container {
+  max-width: 100%;
+}
+
+#about #welcome-container img {
+  display: block;
+  width: 80%;
+  height: auto;
+  margin: 1em auto 2em;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  max-width: 400px;
+}
+
+#about #welcome-container h2 {
+  color: #6558a8;
+  font-size: 1.3em;
+  font-weight: 600;
+  text-align: center;
+  -webkit-transform: translateY(500px);
+          transform: translateY(500px);
+}
+
+#about #img-anim {
+  -webkit-transform: translateY(500px);
+          transform: translateY(500px);
+}
+
+#about .links {
+  padding: 0.5em 2em;
+  width: 80%;
+}
+
+#about .links .btn-about {
+  background-color: rgba(153, 147, 243, 0.3);
+  margin: 1em auto;
+  padding: 0.6em;
+  -webkit-box-shadow: 3px 6px 13px -5px rgba(0, 0, 0, 0.5);
+          box-shadow: 3px 6px 13px -5px rgba(0, 0, 0, 0.5);
+}
+
+#about .links a {
+  margin: 0.5em auto;
+  display: block;
+  text-align: center;
+  color: #6558a8;
+  font-weight: 800;
+  font-size: 1.2em;
+}
+
+#about .links .btn- a:visited {
+  color: #6558a8;
+}
+
+#about .card {
+  margin: 1em;
+  padding: 2em 1em 1em;
+  background-color: #9993f3;
+}
+
+#about .card p {
+  margin-bottom: 1em;
+  color: #f8f8f7;
+  font-size: 1em;
+}
+
+#about .img-container {
+  width: 100%;
+  padding: 1em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#about .img-container img {
+  width: 100%;
+  height: auto;
 }

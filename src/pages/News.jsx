@@ -17,16 +17,31 @@ const link1 =
 const link2 = "https://www.artforum.com/news/william-bailey-1930-2020-82767";
 
 function extendDetails(e) {
-  e.target.style.display = "none";
-
-  gsap.set(e.target.nextSibling, { height: "auto" });
-  gsap.from(e.target.nextSibling, { height: 0, duration: 2 });
+  if (e.target.classList[0] === "fas") {
+    e.target.parentElement.style.display = "none";
+    gsap.set(e.target.parentElement.nextSibling, { height: "auto" });
+    gsap.from(e.target.parentElement.nextSibling, { height: 0, duration: 2 });
+  } else {
+    e.target.style.display = "none";
+    gsap.set(e.target.nextSibling, { height: "auto" });
+    gsap.from(e.target.nextSibling, { height: 0, duration: 2 });
+  }
 }
 
 function hideDetails(e) {
-  e.target.parentElement.previousSibling.style.display = "block";
-  gsap.to(e.target.parentElement, 1, { height: 0, duration: 1 });
-  e.target.parentElement.previousSibling.parentElement.scrollIntoView();
+  if (e.target.classList[0] === "fas") {
+    e.target.parentElement.parentElement.previousSibling.style.display =
+      "block";
+    gsap.to(e.target.parentElement.parentElement, 1, {
+      height: 0,
+      duration: 1,
+    });
+    e.target.parentElement.parentElement.previousSibling.parentElement.scrollIntoView();
+  } else {
+    e.target.parentElement.previousSibling.style.display = "block";
+    gsap.to(e.target.parentElement, 1, { height: 0, duration: 1 });
+    e.target.parentElement.previousSibling.parentElement.scrollIntoView();
+  }
 }
 
 export default class GalleryPage extends Component {
@@ -145,62 +160,62 @@ export default class GalleryPage extends Component {
               Read More<i className="fas fa-angle-double-right"></i>
             </div>
             <div className="expanded-details">
-            <p className="details">
-              The Yale School of Art is pleased to announce that faculty members
-              Danna Singer and A.L. Steiner are among the 2020 Guggenheim
-              Fellows named today by the John Simon Guggenheim Memorial
-              Foundation. Three Yale School of Art alumni are also named among
-              the 2020 Guggenheim Fellows: artists Leslie Hewitt, Gordon Ennis
-              Moore, and Katy Schimert, whose graduating classes span from 1972
-              to 2004.
-            </p>
-            <p>
-              This year’s fellowships were awarded to 175 writers, scholars,
-              artists, and scientists meticulously selected from nearly 3,000
-              applicants across the United States and Canada in the Foundation’s
-              ninety-sixth competition. Chosen through a rigorous peer-review
-              process on the basis of both prior achievement and exceptional
-              promise, the 2020 Fellows are drawn from 53 scholarly disciplines
-              and artistic fields, 78 academic institutions, 31 states and the
-              District of Columbia, and 2 Canadian provinces.
-            </p>
-            <div className="card-image-container">
-              <img src={dsinger} alt="" />
+              <p className="details">
+                The Yale School of Art is pleased to announce that faculty
+                members Danna Singer and A.L. Steiner are among the 2020
+                Guggenheim Fellows named today by the John Simon Guggenheim
+                Memorial Foundation. Three Yale School of Art alumni are also
+                named among the 2020 Guggenheim Fellows: artists Leslie Hewitt,
+                Gordon Ennis Moore, and Katy Schimert, whose graduating classes
+                span from 1972 to 2004.
+              </p>
+              <p>
+                This year’s fellowships were awarded to 175 writers, scholars,
+                artists, and scientists meticulously selected from nearly 3,000
+                applicants across the United States and Canada in the
+                Foundation’s ninety-sixth competition. Chosen through a rigorous
+                peer-review process on the basis of both prior achievement and
+                exceptional promise, the 2020 Fellows are drawn from 53
+                scholarly disciplines and artistic fields, 78 academic
+                institutions, 31 states and the District of Columbia, and 2
+                Canadian provinces.
+              </p>
+              <div className="card-image-container">
+                <img src={dsinger} alt="" />
+              </div>
+              <p>
+                Danna Singer was appointed by the School of Art as a Lecturer in
+                Photography in the fall of 2019, after graduating from the
+                program with an MFA in Photography in 2017. A photographer and
+                educator, Singer’s work largely focuses on the social
+                ramifications of economic inequality, depicting the struggles of
+                working-class Americans.
+              </p>
+              <div className="card-image-container">
+                <img src={asteiner} alt="" className="inline-iamge" />
+              </div>
+              <p>
+                A.L. Steiner was appointed by the School of Art as a Yale
+                Presidential Visiting Fellow in Photography for 2018, and in
+                January 2019 she began her new appointment as Senior Critic in
+                Film/Video. Steiner’s approach within the genre of film, video,
+                and lens-based media emphasizes an artist practice that reflects
+                that of a critical cultural producer exploring the traditions of
+                collage and montage.
+              </p>
+              <p>
+                Since its establishment in 1925, the John Simon Guggenheim
+                Memorial Foundation has granted more than $375 million in
+                Fellowships to over 18,000 individuals, among whom are scores of
+                Nobel laureates, Fields Medalists, poets laureate, members of
+                the national academies, winners of the Pulitzer Prize, Turing
+                Award, Bancroft Prize, National Book Award, and many other
+                internationally recognized honors
+              </p>
+              <div className="hide-button">
+                <i className="fas fa-angle-double-left"></i>Hide Details
+              </div>
             </div>
-            <p>
-              Danna Singer was appointed by the School of Art as a Lecturer in
-              Photography in the fall of 2019, after graduating from the program
-              with an MFA in Photography in 2017. A photographer and educator,
-              Singer’s work largely focuses on the social ramifications of
-              economic inequality, depicting the struggles of working-class
-              Americans.
-            </p>
-            <div className="card-image-container">
-              <img src={asteiner} alt="" className="inline-iamge" />
-            </div>
-            <p>
-              A.L. Steiner was appointed by the School of Art as a Yale
-              Presidential Visiting Fellow in Photography for 2018, and in
-              January 2019 she began her new appointment as Senior Critic in
-              Film/Video. Steiner’s approach within the genre of film, video,
-              and lens-based media emphasizes an artist practice that reflects
-              that of a critical cultural producer exploring the traditions of
-              collage and montage.
-            </p>
-            <p>
-              Since its establishment in 1925, the John Simon Guggenheim
-              Memorial Foundation has granted more than $375 million in
-              Fellowships to over 18,000 individuals, among whom are scores of
-              Nobel laureates, Fields Medalists, poets laureate, members of the
-              national academies, winners of the Pulitzer Prize, Turing Award,
-              Bancroft Prize, National Book Award, and many other
-              internationally recognized honors
-            </p>
-            <div className="hide-button">
-              <i className="fas fa-angle-double-left"></i>Hide Details
-            </div>
-            </div>
-            
           </div>
         </article>
       </section>

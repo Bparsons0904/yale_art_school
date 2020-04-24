@@ -19,11 +19,13 @@ header {
     }
     h1 {
       padding-left: 1em;
-      font-size: 1.4em;
+      font-size: 1.2em;
       line-height: 50px;
+      letter-spacing: .05em;
       text-transform: uppercase;
       color: $color-primary;
       font-weight: 800;
+      font-family: $secondary-font;
     }
   }
   .menu-wrap {
@@ -154,7 +156,7 @@ header {
             a:hover {
               transform: scale(1.1);
               color: $color-accent-dark;
-              font-weight: bold;
+              font-weight: 700;
             }
             .active::after {
               content: "";

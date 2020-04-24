@@ -18,6 +18,14 @@ i {
   padding-right: 1em;
 }
 
+h1 {
+  font-weight: 600;
+}
+
+h3 {
+  font-weight: 500;
+}
+
 input,
 input:focus,
 input:focus-within {
@@ -77,7 +85,7 @@ form {
   margin: 1em auto;
   padding: 1em;
   border-radius: 0.5em;
-  max-width: 300px;
+  max-width: 400px;
 }
 
 .card-shadow {
@@ -92,6 +100,7 @@ form {
   border-radius: 0.5em;
   margin-bottom: -4em;
   background-color: $color-primary;
+  
   background: linear-gradient(
     to bottom,
     $color-primary-light 0%,
@@ -101,6 +110,7 @@ form {
   h1 {
     color: $color-light;
     text-align: center;
+    font-weight: 600;
   }
 }
 
@@ -112,7 +122,7 @@ form {
   text-align: center;
   line-height: 2em;
   padding: 0.2em 1.5em;
-  font-weight: bold;
+  font-weight: 500;
   border: solid 2px;
   transition: 0.5s;
 }
@@ -133,6 +143,7 @@ form {
   @extend .button;
   background-color: $color-accent-dark;
   border-color: $color-primary;
+  background-color: #00000000;
 }
 
 .btn-secondary {
@@ -161,7 +172,7 @@ form {
 
 .btn-accent-dark-outline {
   @extend .button;
-  background-color: $color-accent-dark;
+  background-color: #00000000;
   border-color: $color-accent-dark;
 }
 
@@ -171,7 +182,7 @@ form {
   text-align: center;
   line-height: 2em;
   font-size: 1.1em;
-  font-weight: bold;
+  font-weight: 600;
   color: $color-light;
   background-color: $color-secondary-light;
   margin: 0.5em auto;
