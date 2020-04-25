@@ -114,6 +114,10 @@ form {
   }
 }
 
+.img-shadow {
+  box-shadow: 0 10px 10px -5px rgba($color: #000000, $alpha: 0.5);
+}
+
 // Common buttons
 .button {
   width: 5em;

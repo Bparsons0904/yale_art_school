@@ -4,6 +4,8 @@ header {
   left: 0;
   display: flex;
   background-color: $color-grey;
+  // background-color: $color-dark;
+  
   width: 100vw;
   height: 50px;
   justify-content: space-between;
@@ -24,6 +26,7 @@ header {
       letter-spacing: .05em;
       text-transform: uppercase;
       color: $color-primary;
+      // color: $color-light;
       font-weight: 800;
       font-family: $secondary-font;
     }
@@ -61,6 +64,8 @@ header {
         width: 100%;
         height: 3px;
         background-color: $color-primary;
+        // background-color: $color-light;
+        
         display: flex;
         align-items: center;
         justify-content: center;
@@ -76,6 +81,7 @@ header {
         height: 3px;
         background: inherit;
         background-color: $color-primary;
+        // background-color: $color-light;
       }
       > div::after {
         top: 10px;
@@ -85,13 +91,13 @@ header {
       + .hamburger {
         > div {
           transform: rotate(135deg);
-          background-color: $color-light;
+          // background-color: $color-light;
         }
         > div:before,
         > div:after {
           top: 0;
           transform: rotate(90deg);
-          background-color: $color-light;
+          // background-color: $color-light;
         }
       }
       ~ .menu {

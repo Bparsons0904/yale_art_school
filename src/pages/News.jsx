@@ -11,6 +11,7 @@ import wbailey3 from "../assets/w_bailey3.jpg";
 import dsinger from "../assets/dsinger.jpg";
 import asteiner from "../assets/asteiner.jpg";
 import jsimon from "../assets/jsimon.jpg";
+import headerImg from "../assets/newpaper.jpg";
 
 const link1 =
   "https://www.nytimes.com/2020/04/18/arts/william-bailey-dead.html?searchResultPosition=1";
@@ -77,7 +78,31 @@ export default class GalleryPage extends Component {
     return (
       <section id="news">
         <img src={watermark} alt="" id="watermark" />
-        <h1>YALE ART NEWS</h1>
+        {/* <div className="title-container">
+          <img src={headerImg} alt="" />
+          <div className="title-wrapper">
+            <div className="title-text">
+              <span>Y</span>
+              <span>A</span>
+              <span>L</span>
+              <span>E</span>
+            </div>
+            <div className="title-text">
+              <span>A</span>
+              <span>R</span>
+              <span>T</span>
+            </div>
+            <div className="title-text">
+              <span>N</span>
+              <span>E</span>
+              <span>W</span>
+              <span>S</span>
+            </div>
+          </div>
+        </div> */}
+        {/* <h1 id="header">Art News</h1> */}
+        
+        <img src={headerImg} alt="" id="header-img" className="img-shadow"/>
         <article id="headline" className="news-article">
           <div className="card">
             <h1>APRIL 17, 2020</h1>

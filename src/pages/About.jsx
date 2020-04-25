@@ -68,7 +68,7 @@ export default class AboutPage extends Component {
           </h2>
         </div>
         <div className="img-container" id="img-anim" ref={(div) => (this.img2Ref = div)}>
-          <img src={building} alt="" />
+          <img src={building} alt="" className="img-shadow" />
         </div>
         <div className="links">
           <a
@@ -145,8 +145,8 @@ export default class AboutPage extends Component {
             History
           </a>
         </div>
-        <div className="img-container">
-          <img src={building2} alt="" />
+        <div className="img-container" >
+          <img src={building2} alt="" className="img-shadow"/>
         </div>
         <div className="card">
           <p>
@@ -181,7 +181,7 @@ export default class AboutPage extends Component {
           </p>
         </div>
         <div className="img-container">
-          <img src={building3} alt="" />
+          <img src={building3} alt="" className="img-shadow"/>
         </div>
       </section>
     );

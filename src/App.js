@@ -21,7 +21,7 @@ import About from "./pages/About";
 import News from "./pages/News";
 import Header from "./components/Header";
 import ScrollToTop from "./components/ScrollToTop";
-// import Footer from './components/Footer';
+import Footer from './components/Footer';
 
 // Import CSS sheet
 import "./styles/styles.min.css";
@@ -137,7 +137,7 @@ class App extends Component {
             <Events />
           </Route>
         </Switch>
-        {/* <Footer></Footer> */}
+        <Footer></Footer>
         </ScrollToTop>
       </Router>
     );
