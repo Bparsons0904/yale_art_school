@@ -5,7 +5,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 // Signin methods from firebase
 import { signin, signInWithGoogle, signInWithGitHub } from "../helpers/auth";
-import watermark from "../assets/watermark4.jpg";
+// import watermark from "../assets/watermark4.jpg";
+import video_backdrop_small from "../assets/cover_small.mp4";
+import video_cover from "../assets/cover_photo.jpg";
 
 export default class Login extends Component {
   constructor() {
@@ -67,13 +69,21 @@ export default class Login extends Component {
       element.classList.remove("active");
     }
     document.getElementById("menu-item-login").classList.add("active");
+    document.getElementById('footer').style.display = "block";
+  }
+
+  componentWillUnmount() {
+    document.getElementById('footer').style.display = "none";
   }
 
   render() {
     return (
       <section id="login">
+        <figure id="cover">
+          <video src={video_backdrop_small} autoPlay loop muted playsInline poster={video_cover}></video>
+        </figure>
         <div className="container" >
-        <img src={watermark} alt="" id="watermark" />
+        {/* <img src={watermark} alt="" id="watermark" /> */}
         <div className="card">
           <form autoComplete="off" onSubmit={this.handleSubmit}>
             <div className="inner-card">

@@ -10,6 +10,9 @@
 
     img {
       width: 100%;
+      max-width: 350px;
+      margin: auto;
+      display: block;
       height: auto;
       opacity: 1;
       box-shadow: 0 10px 10px -5px rgba($color: #000000, $alpha: 0.5);
@@ -28,7 +31,13 @@
       text-align: center;
       padding: 0.6em;
       text-transform: uppercase;
+      @include breakpoint(sm-tablet) {
+        font-size: 2.2em;
+      }
     }
+  }
+  #recent {
+    margin-top: 4em;
   }
   .swiper-container {
     width: 100%;
@@ -38,15 +47,20 @@
     // transform: translateX(500px);
     opacity: 0;
   }
-  .swipper-wrapper {
-  }
+
   .swiper-slide {
     background-position: center;
     background-size: cover;
     object-fit: cover;
     width: 300px;
     height: 300px;
+    @extend .img-shadow;
+    @include breakpoint(sm-tablet) {
+      width: 400px;
+      height: 400px;
+    }
   }
+
   // .swiper-slide::before {
   //   position: absolute;
   //   bottom: 0;
@@ -75,6 +89,9 @@
     color: $color-secondary-dark;
     text-transform: capitalize;
     font-weight: 500;
+    @include breakpoint(sm-tablet) {
+      font-size: 1em;
+    }
   }
   .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
     background: $color-primary;
@@ -102,37 +119,68 @@
   z-index: 1;
   opacity: 0;
   overflow-y: scroll;
+  background-color: $color-grey;
+  padding: 1em;
+  box-sizing: border-box;
+  @include breakpoint(sm-desktop) {
+    padding: 2em;
+  }
   .modal-card {
     padding: 1em;
     margin: 0 auto;
+    max-width: 1000px;
+    background-color: $color-light;
+    // height: 100%;
+    @extend .img-shadow;
+    @include breakpoint(sm-tablet) {
+      padding: 2em;
+    }
     .modal-close {
       font-size: 1.5em;
-      float: right;
-      margin: 1em 0;
+      margin: 0 0 1em;
       font-weight: 600;
-      i {
-        padding: 0;
+      position: relative;
+      height: 1.5em;
+
+      .close-text {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transition: .5s;
+        i {
+          padding: 0;
+        }
       }
     }
-    .modal-close:hover {
+    .modal-close:hover .close-text{
       transform: scale(1.05);
+
     }
     .modal-display {
       max-width: 100%;
       padding: 0;
+
       #modal-image {
         max-width: 100%;
-        margin: auto;
+        margin: 1em auto;
         display: block;
-        transform: translateX(500px);
+        @extend .img-shadow;
+
       }
       p {
         color: $color-dark;
         font-size: 0.6em;
+        transform: translateY(300px);
+        @include breakpoint(sm-tablet) {
+          font-size: 0.8em;
+        }
       }
       #info {
-        margin-top: 1em;
+        margin-top: 2em;
         font-size: 0.8em;
+        @include breakpoint(sm-tablet) {
+          font-size: 1.1em;
+        }
       }
     }
   }

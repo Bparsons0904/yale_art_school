@@ -1,6 +1,10 @@
 #events {
   color: $color-primary;
   position: relative;
+  @include breakpoint(sm-desktop) {
+    max-width: 1000px;
+    margin: auto;
+  }
   #watermark {
     position: fixed;
     top: 50px;
@@ -14,12 +18,35 @@
     height: auto;
     margin-bottom: 1em;
     opacity: 1;
+    max-width: 600px;
+    margin: 0 auto 2em;
+    display: block;
   }
   // .container {
   //   position: absolute;
   //   top: 0;
   //   left: 0;
   // }
+  .card-container {
+    @include breakpoint(sm-tablet) {
+      // display: grid;
+      // grid-template-columns: 1fr 1fr;
+      // grid-template-rows: auto;
+      // grid-template-areas: 
+      //   "halfCard  halfCard"
+      //   "fullCard fullCard";
+      .half-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2em;
+      }
+      .full-card {
+        padding: 1.5em;
+      }
+    }
+    
+    
+  }
   .event-card {
     background-color: $color-secondary-dark;
     padding: 0.5em;
@@ -27,7 +54,7 @@
     border-radius: 0.25em;
     // box-shadow: 3px 4px 3px rgba(0, 0, 0, 0.2);
     position: relative;
-    box-shadow: 0 10px 10px -5px rgba($color: #000000, $alpha: 0.5);
+    box-shadow: 0 10px 10px -5px rgba($color: #000000, $alpha: 0.5);    
     h2 {
       text-align: center;
       padding: 0.5em;
@@ -51,8 +78,11 @@
     }
     hr {
       width: 80%;
+      border-color: $color-secondary-light;
+      border-width: 5px;
     }
     .event-details {
+      grid-area: eventDetails;
       width: 100%;
       padding: 0.5em 0;
       display: grid;
@@ -61,6 +91,23 @@
         "image date"
         "image time"
         "image address";
+        @include breakpoint(sm-tablet) {
+          grid-template-areas: 
+            "image image"
+            "date time"
+            "address address";
+          justify-items: center;
+          font-size: 1.2em;
+        }
+        @include breakpoint(lrg-tablet) {
+
+          grid-template-areas:
+        "image date"
+        "image time"
+        "image address";
+          justify-items: left;
+          font-size: 1.5em;
+        }
       img {
         display: block;
         width: 5em;
@@ -71,6 +118,9 @@
         border-radius: 50%;
         object-fit: cover;
         grid-area: image;
+        @include breakpoint(sm-tablet) {
+          margin-bottom: .5em;
+        }
       }
       p {
         font-size: 0.7em;
@@ -88,10 +138,17 @@
     }
     .event-primary {
       padding: 0.5em;
+      grid-area: eventPrimary;
+      @include breakpoint(sm-tablet) {
+        align-self: center;
+        padding-right: 2em;
+      }
     }
     .event-info {
       padding: 0.5em;
       font-size: 0.8em;
+      grid-area: eventInfo;
+      
     }
     .expanded-details {
       font-size: 0.8em;
@@ -103,8 +160,45 @@
       }
     }
   }
+  .full-card {
+    @include breakpoint(sm-tablet) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 1em;
+      grid-template-areas: 
+        "eventHeader eventHeader"
+        "eventDetails eventPrimary"
+        "eventInfo eventInfo"
+        "extButton extButton"
+        "expDetails expDetails";
+        .event-header-wrapper {
+          grid-area: eventHeader;
+        }
+        .extend-button {
+          grid-area: extButton;
+        }
+        .expanded-details {
+          grid-area: expDetails;
+          p {
+            font-size: 1.2em;
+          }
+        }
+        .event-info {
+          font-size: 1.2em;
+          max-width: 1000px;
+          margin: auto;
+        }
+    }
+    
+  }
+
+  // .half-card {
+  //   grid-area: halfCard;
+  // }
+
   .hide-button {
     font-size: 1.4em;
+    
   }
   // .event-card:before,
   // .event-card:after {

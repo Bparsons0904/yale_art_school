@@ -82,11 +82,11 @@ export default class Header extends Component {
                   <li>
                     <Link
                       className="menu-item"
-                      to="/news"
-                      id="menu-item-news"
+                      to="/events"
+                      id="menu-item-events"
                       onClick={toggleCheckbox()}
                     >
-                      News
+                      Events
                     </Link>
                   </li>
                   <li>
@@ -102,11 +102,11 @@ export default class Header extends Component {
                   <li>
                     <Link
                       className="menu-item"
-                      to="/events"
-                      id="menu-item-events"
+                      to="/news"
+                      id="menu-item-news"
                       onClick={toggleCheckbox()}
                     >
-                      Events
+                      News
                     </Link>
                   </li>
                   <li>

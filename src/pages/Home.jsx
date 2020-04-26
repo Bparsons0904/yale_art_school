@@ -4,6 +4,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import video_backdrop_small from "../assets/cover_small.mp4";
+import video_cover from "../assets/cover_photo.jpg";
 import { gsap } from 'gsap';
 
 // const cta = useRef(null);
@@ -35,9 +36,9 @@ export default class HomePage extends Component {
       element.classList.remove("active");
     }
     document.getElementById('menu-item-home').classList.add("active");
-    
-    this.headerLoader = gsap.from(this.headerRef, 1, {y: -200});
-    this.buttonLoader = gsap.to(this.buttonRef, {opacity:1,delay: 1});
+    this.headerLoader = gsap.set(this.headerRef, {opacity: 0, y: -200})
+    this.headerLoader = gsap.to(this.headerRef, 1, {y: 0, opacity: 1, delay: 1});
+    this.buttonLoader = gsap.to(this.buttonRef, 1, {opacity:1, delay: 1.5});
   };
   
   // Return navbar to standard
@@ -68,7 +69,7 @@ export default class HomePage extends Component {
     return (
       <section id="home">
         <figure id="cover">
-          <video src={video_backdrop_small} autoPlay loop muted playsInline ></video>
+          <video src={video_backdrop_small} autoPlay loop muted playsInline poster={video_cover}></video>
         </figure>
         {/* <figure id="logo">
           <img src={logo} alt=""/>

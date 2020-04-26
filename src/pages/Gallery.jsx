@@ -3,7 +3,7 @@
 // Import required files
 import React, { Component } from "react";
 // import { Link } from "react-router-dom";
-import { gsap, TimelineLite } from "gsap";
+import { gsap } from "gsap";
 import Swiper from "swiper";
 import featured1 from "../assets/featured1.jpg";
 import featured2 from "../assets/featured2.jpg";
@@ -36,7 +36,7 @@ import featured from "../assets/card_inner_painting.png";
 //     { color: "#23452a" }
 //   );
 // }, []);
-let tl = new TimelineLite();
+// let tl = new TimelineLite();
 
 function loadModal(modal, e) {
   modal.style.display = "unset";
@@ -47,19 +47,23 @@ function loadModal(modal, e) {
   document.getElementById("owner").innerHTML = e.target.dataset.owner;
   document.getElementById("info").innerHTML = e.target.dataset.info;
   //   console.log(e);
-  gsap.timeline()
-  .to(".swiper-container", .4, {opacity: 0})
-  .to(modal, .4, {opacity: 1})
-  .to("#modal-image", 1, {ease: "back.out(1.7)", x: 0});
+  gsap
+    .timeline()
+    .to(".swiper-container", { opacity: 0, duration: .2 })
+    .to(modal, { opacity: 1, duration: .2 })
+    .fromTo([".modal-close","#modal-image"] , {x:500, opacity:0}, {x: 0, opacity: 1, duration: .5})
+    // .fromTo("#modal-image", {x:500, opacity:0}, { ease: "back.out(1.7)", x: 0, opacity: 1 })
+    .fromTo("p", {y:300, opacity: 0}, {y: 0, opacity:1, delay: 0});
   // console.log(this.modalImage);
 }
 
 function modalClose() {
   // let tl = new TimelineLite();
-  tl.to("#modal", .4, {opacity: 0})
-  .to(".swiper-container", .4, {opacity: 1})
-  .to("#modal", 0, {display: "none"})
-  .to("#modal-image", {x: 500});
+  gsap
+    .timeline()
+    .to("#modal", 0.4, { opacity: 0 })
+    .to(".swiper-container", 0.4, { opacity: 1 })
+    .set("#modal", { display: "none" })
   // document.getElementById("modal").style.display = "none";
 }
 
@@ -100,6 +104,7 @@ export default class GalleryPage extends Component {
       element.classList.remove("active");
     }
     document.getElementById("menu-item-gallery").classList.add("active");
+    document.getElementById('footer').style.display = "block";
     let modal = document.getElementById("modal");
     // this.modalImage = document.getElementById('model-image');
     modal.style.display = "none";
@@ -154,7 +159,18 @@ export default class GalleryPage extends Component {
     //   },
     // });
 
-    this.headerImg = gsap.to(this.headerRef, 1, {opacity: 1});
+    this.headerImg = gsap.to(this.headerRef, 1, { opacity: 1 });
+  }
+
+  componentWillUnmount() {
+    let modal = document.getElementById("modal");
+    document.getElementById('footer').style.display = "none";
+    var swiperSlide = document.getElementsByClassName("swiper-slide");
+    for (var index = 0; index < swiperSlide.length; index++) {
+      swiperSlide[index].removeEventListener("click", function (e) {
+        loadModal(modal, e);
+      });
+    }
   }
 
   render() {
@@ -166,7 +182,10 @@ export default class GalleryPage extends Component {
         <div id="modal">
           <div className="modal-card">
             <div onClick={modalClose} className="modal-close">
-              Close Window <i className="far fa-window-close"></i>
+              <div className="close-text">
+                Close Window <i className="far fa-window-close"></i>
+              </div>
+              
             </div>
             <div className="modal-display">
               <img id="modal-image" src={this.modalImage} alt="" />
@@ -177,13 +196,20 @@ export default class GalleryPage extends Component {
             </div>
           </div>
         </div>
-        <div className="swiper-container" ref={div => this.headerRef[0] = div}>
-          <div className="title-container" >
+        <div
+          className="swiper-container"
+          ref={(div) => (this.headerRef[0] = div)}
+        >
+          <div className="title-container">
             <img src={featured} alt="" />
-            <h1>Featured<br/>Work</h1>
+            <h1>
+              Featured
+              <br />
+              Work
+            </h1>
           </div>
 
-          <div className="swiper-wrapper" >
+          <div className="swiper-wrapper">
             <div className="swiper-slide">
               <div className="swiper-zoom-container">
                 <img
@@ -313,10 +339,18 @@ export default class GalleryPage extends Component {
           </div>
           <div className="swiper-pagination"></div>
         </div>
-        <div className="swiper-container" ref={div => this.headerRef[1] = div}>
-        <div className="title-container">
+        <div
+          className="swiper-container"
+          id="recent"
+          ref={(div) => (this.headerRef[1] = div)}
+        >
+          <div className="title-container">
             <img src={featured} alt="" />
-            <h1>Recent<br/>Work</h1>
+            <h1>
+              Recent
+              <br />
+              Work
+            </h1>
           </div>
           <div className="swiper-wrapper">
             <div className="swiper-slide">

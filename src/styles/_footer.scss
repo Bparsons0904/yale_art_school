@@ -3,7 +3,7 @@ footer {
   width: 100%;
   // height: 2em;
   // margin-bottom: 50px;
-  
+
   a {
     display: block;
     color: $color-light;
@@ -11,13 +11,18 @@ footer {
   #social {
     grid-area: social;
     border-left: solid 4px $color-primary;
+    @include breakpoint(sm-tablet) {
+      display: flex;
+      border-left: none;
+      width: 200px;
+      margin: auto;
+    }
     a {
       font-size: 2em;
-      margin: .5em auto;
-    //   text-align: center;
+      margin: 0.5em auto;
       display: grid;
       justify-content: center;
-    //   align-content: center;
+
       i {
         padding: 0;
       }
@@ -31,15 +36,48 @@ footer {
   #copyright {
     grid-area: copyright;
     text-align: center;
+    @include breakpoint(sm-tablet) {
+      border-top: solid 4px $color-primary;
+      width: 70%;
+      padding-top: 0.5em;
+      margin: auto;
+    }
   }
   .footer-container {
     display: grid;
     align-items: center;
-    
+    padding: 0.5em;
     grid-template-rows: 1fr 1fr;
-    grid-template-areas: 
+    grid-template-areas:
       "contact social"
       "copyright social";
-      padding: .5em;
+    @include breakpoint(sm-tablet) {
+      grid-template-areas:
+        "contact social"
+        "copyright copyright";
+      grid-template-rows: auto;
+    }
+  }
+}
+
+#login,
+#register {
+  + #footer {
+    @include breakpoint(sm-tablet) {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}
+
+@media (min-height: 800px) {
+  #login,
+  #register {
+    + #footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+    }
   }
 }

@@ -53,6 +53,9 @@
     grid-template-areas:
       "title title"
       "events-btn enroll-btn";
+      @include breakpoint(sm-tablet) {
+        max-width: 750px;
+      }
     h1 {
       color: $color-light;
       font-size: 4em;
@@ -80,10 +83,11 @@
       border-width: 3px;
     }
     .button:nth-of-type(1):hover {
-      background-color: $color-primary;
+
+      border-color: $color-light;
     }
     .button:nth-of-type(2):hover {
-      background-color: $color-accent-dark;
+      border-color: $color-light;
     }
   }
 }

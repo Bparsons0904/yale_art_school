@@ -4,7 +4,24 @@
   position: relative;
   width: 100%;
   padding-top: 2em;
-  // min-height: 100vh;
+  #cover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    video {
+      left: 50%;
+      min-height: 100%;
+      min-width: 100%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      overflow: hidden;
+    }
+  }
   // overflow-x: hidden;
   // #watermark {
   //   position: absolute;
@@ -20,9 +37,12 @@
   }
   .card {
     // margin: auto auto;
-    // max-width: 450px;
+    max-width: 300px;
     // padding: 1em;
-    box-shadow: 2px 2px 9px 3px rgba(0, 0, 0, .2);
+    box-shadow: 2px 2px 9px 3px rgba(0, 0, 0, 0.2);
+    @include breakpoint(sm-desktop) {
+      transform: translateX(120%);
+    }
     .input-container {
       // padding: 1em 0;
       .user-input {

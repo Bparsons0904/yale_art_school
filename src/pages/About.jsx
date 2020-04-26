@@ -28,29 +28,62 @@ export default class AboutPage extends Component {
       element.classList.remove("active");
     }
     document.getElementById("menu-item-about").classList.add("active");
+    document.getElementById("footer").style.display = "block";
 
-    let tl = gsap.timeline();
-    tl.to(this.imgRef, { scale: 1 })
-    .to(this.textRef, { y: 0 })
-    .to(this.img2Ref, { y: 0 });
-    // .to(this.buttonRef, { y: 0, opacity: 1, stagger: 0.2 });
+    gsap
+      .timeline()
+      .from(this.imgRef, {scale: 0})
+      .from(this.textRef, { y: 200, opacity: 0 })
+      .from(this.img2Ref, { y: 200, opacity: 0 });
 
-    let observer = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            gsap.set(entry.target, { y: 200, opacity: 0 });
-            gsap.to(entry.target, { y: 0, opacity: 1, duration: 1 });
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { rootMargin: "0px 0px 100px 0px" }
-    );
-    this.scrollEvents = document.querySelectorAll(".btn-about");
-    this.scrollEvents.forEach((card) => {
-      observer.observe(card);
-    });
+    // let observer = new IntersectionObserver(
+    //   (entries, observer) => {
+    //     entries.forEach((entry) => {
+    //       console.log(entry.intersectionRatio);
+
+    //       if (entry.intersectionRatio > 0) {
+    //         gsap.set(entry.target, { y: 200, opacity: 0 });
+    //         gsap.to(entry.target, { y: 0, opacity: 1});
+
+    //         console.log("Observer");
+    //         observer.unobserve(entry.target);
+    //       }
+    //     });
+    //   }
+    // );
+    // // this.scrollEvents = document.querySelectorAll(".btn-about");
+    // this.buttonRef.forEach((card) => {
+    //   observer.observe(card);
+    // });
+
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0,
+    };
+
+    let callback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          gsap.set(entry.target, { y: 500 });
+          gsap.to(entry.target, { y: 0, opacity: 1 });
+          observer.unobserve(entry.target);
+          console.log("Observe");
+        }
+      });
+    };
+
+    let observer = new IntersectionObserver(callback, options);
+
+    setTimeout(() => {
+      document.querySelectorAll(".btn-about").forEach((button) => {
+        observer.observe(button);
+      });
+    }, 1000);
+  }
+
+  componentWillUnmount() {
+    document.getElementById("footer").style.display = "none";
   }
 
   render() {
@@ -60,14 +93,19 @@ export default class AboutPage extends Component {
       <section id="about">
         <img src={watermark} alt="" id="watermark" />
         <div id="welcome-container" className="container">
-          <img src={logo} alt="" ref={(img) => (this.imgRef = img)} />
-          <h2 ref={(h2) => (this.textRef = h2)}>
+          <img src={logo} alt="" ref={(img) => (this.imgRef = img)} id="logo"/>
+          <h2 ref={(h2) => (this.textRef = h2)} id="into-text">
             THE YALE SCHOOL OF ART IS A GRADUATE SCHOOL THAT CONFERS MASTER OF
             FINE ARTS DEGREES IN GRAPHIC DESIGN, PAINTING/PRINTMAKING,
             PHOTOGRAPHY, AND SCULPTURE
           </h2>
         </div>
-        <div className="img-container" id="img-anim" ref={(div) => (this.img2Ref = div)}>
+        <div id="group2">
+        <div
+          className="img-container"
+          id="img-anim"
+          ref={(div) => (this.img2Ref = div)}
+        >
           <img src={building} alt="" className="img-shadow" />
         </div>
         <div className="links">
@@ -145,8 +183,11 @@ export default class AboutPage extends Component {
             History
           </a>
         </div>
-        <div className="img-container" >
-          <img src={building2} alt="" className="img-shadow"/>
+        </div>
+
+        <div id="group3">
+        <div className="img-container">
+          <img src={building2} alt="" className="img-shadow" id="middle-img"/>
         </div>
         <div className="card">
           <p>
@@ -181,8 +222,11 @@ export default class AboutPage extends Component {
           </p>
         </div>
         <div className="img-container">
-          <img src={building3} alt="" className="img-shadow"/>
+          <img src={building3} alt="" className="img-shadow" id="bottom-img"/>
         </div>
+        </div>
+        
+        
       </section>
     );
   }

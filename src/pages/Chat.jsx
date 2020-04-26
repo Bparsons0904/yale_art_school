@@ -31,7 +31,7 @@ export default class Chat extends Component {
       element.classList.remove("active");
     }
     document.getElementById("menu-item-chat").classList.add("active");
-
+    document.getElementById('footer').style.display = "block";
     // Set state to if values have been loaded from DB
     this.setState({ readError: null, loadingChats: true });
     const chatArea = this.myRef.current;
@@ -57,6 +57,10 @@ export default class Chat extends Component {
       // Display error rmessage and stop loading animaiton if error
       this.setState({ readError: error.message, loadingChats: false });
     }
+  }
+
+  componentWillUnmount() {
+    document.getElementById('footer').style.display = "none";
   }
 
   // On change, update value of state
@@ -101,6 +105,7 @@ export default class Chat extends Component {
   render() {
     return (
       <section id="chat">
+        <img src={watermark} alt="" id="watermark" />
         {/* loading indicator */}
         {this.state.loadingChats ? (
           <div className="loader-container">
@@ -117,7 +122,6 @@ export default class Chat extends Component {
           ""
         )}
         <div className="container">
-          <img src={watermark} alt="" id="watermark" />
           <div className="chat-area card card-shadow">
             {/* chat area */}
             <div className="inner-card">

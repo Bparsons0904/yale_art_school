@@ -5,7 +5,7 @@ header {
   display: flex;
   background-color: $color-grey;
   // background-color: $color-dark;
-  
+
   width: 100vw;
   height: 50px;
   justify-content: space-between;
@@ -23,12 +23,15 @@ header {
       padding-left: 1em;
       font-size: 1.2em;
       line-height: 50px;
-      letter-spacing: .05em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      color: $color-primary;
+      color: $color-dark;
       // color: $color-light;
       font-weight: 800;
       font-family: $secondary-font;
+      @include breakpoint(sm-tablet) {
+        font-size: 1.7em;
+      }
     }
   }
   .menu-wrap {
@@ -58,14 +61,17 @@ header {
       align-items: center;
       justify-content: center;
       transition-delay: 0.4s;
+      @include breakpoint(sm-tablet) {
+        padding-right: 2em;
+      }
       > div {
         position: relative;
         flex: none;
         width: 100%;
         height: 3px;
-        background-color: $color-primary;
+        background-color: $color-dark;
         // background-color: $color-light;
-        
+
         display: flex;
         align-items: center;
         justify-content: center;
@@ -80,8 +86,9 @@ header {
         width: 100%;
         height: 3px;
         background: inherit;
-        background-color: $color-primary;
+        background-color: $color-dark;
         // background-color: $color-light;
+        transition: 0.5s;
       }
       > div::after {
         top: 10px;
@@ -91,13 +98,13 @@ header {
       + .hamburger {
         > div {
           transform: rotate(135deg);
-          // background-color: $color-light;
+          background-color: $color-light;
         }
         > div:before,
         > div:after {
           top: 0;
           transform: rotate(90deg);
-          // background-color: $color-light;
+          background-color: $color-light;
         }
       }
       ~ .menu {
@@ -112,8 +119,22 @@ header {
         }
       }
     }
-    .toggler:checked:hover + .hamburger > div {
-      transform: rotate(225deg);
+    .toggler:not(:checked):hover + .hamburger > div::before {
+      transform: translateY(5px);
+    }
+    .toggler:not(:checked):hover + .hamburger > div::after {
+      transform: translateY(-5px);
+    }
+    .toggler:checked:hover + .hamburger {
+      > div {
+        transform: rotate(225deg);
+      }
+      // > div::before {
+      //   transform: translateY(-5px);
+      // }
+      // > div::after {
+      //   transform: translateY(5px);
+      // }
     }
   }
   .menu {
@@ -158,6 +179,9 @@ header {
               position: relative;
               display: inline-block;
               overflow: hidden;
+              @include breakpoint(phone) {
+                font-size: 1.3em;
+              }
             }
             a:hover {
               transform: scale(1.1);
@@ -199,6 +223,5 @@ header {
         background-color: $color-light;
       }
     }
-
   }
 }

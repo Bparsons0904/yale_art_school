@@ -26,6 +26,7 @@ import Footer from './components/Footer';
 // Import CSS sheet
 import "./styles/styles.min.css";
 
+
 // Create route passed on user authenticaiton state, not authorized to login
 function PrivateRoute({ component: Component, authenticated, ...rest }) {
   return (
@@ -65,6 +66,7 @@ class App extends Component {
     };
   }
 
+
   // Once component is mounted, check on user authentication
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -82,6 +84,7 @@ class App extends Component {
         });
       }
     });
+    
   }
 
   render() {
