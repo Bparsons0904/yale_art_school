@@ -93,7 +93,7 @@ class App extends Component {
         <span className="sr-only">Loading...</span>
       </div>
     ) : (
-      <Router basename="/yaleart/">
+      <Router>
         <ScrollToTop>
         {/* Always display header */}
         <Route

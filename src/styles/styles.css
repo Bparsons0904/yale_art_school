@@ -531,14 +531,18 @@ header .menu-wrap .toggler:checked ~ .menu > div > div {
   transition: opacity 0.4s ease 0.4s;
 }
 
-header .menu-wrap .toggler:not(:checked):hover + .hamburger > div::before {
-  -webkit-transform: translateY(5px);
-          transform: translateY(5px);
+@media (min-width: 1200px) {
+  header .menu-wrap .toggler:not(:checked):hover + .hamburger > div::before {
+    -webkit-transform: translateY(5px);
+            transform: translateY(5px);
+  }
 }
 
-header .menu-wrap .toggler:not(:checked):hover + .hamburger > div::after {
-  -webkit-transform: translateY(-5px);
-          transform: translateY(-5px);
+@media (min-width: 1200px) {
+  header .menu-wrap .toggler:not(:checked):hover + .hamburger > div::after {
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px);
+  }
 }
 
 header .menu-wrap .toggler:checked:hover + .hamburger > div {
@@ -1850,11 +1854,6 @@ footer .footer-container {
     -ms-grid-columns: 65% 35%;
         grid-template-columns: 65% 35%;
         grid-template-areas: "introText logo";
-  }
-}
-
-@media (min-width: 1200px) {
-  #about #welcome-container {
     padding-bottom: 0;
   }
 }
@@ -1963,9 +1962,6 @@ footer .footer-container {
     -ms-grid-row: 2;
     -ms-grid-column: 1;
     grid-area: middleImage;
-    overflow: hidden;
-    height: 100%;
-    width: auto;
   }
   #about #group3 #bottom-img {
     -ms-grid-row: 2;

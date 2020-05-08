@@ -120,10 +120,15 @@ header {
       }
     }
     .toggler:not(:checked):hover + .hamburger > div::before {
-      transform: translateY(5px);
+      @include breakpoint(sm-desktop) {
+        transform: translateY(5px);
+      }
+      
     }
     .toggler:not(:checked):hover + .hamburger > div::after {
-      transform: translateY(-5px);
+      @include breakpoint(sm-desktop) {
+        transform: translateY(-5px);
+      }
     }
     .toggler:checked:hover + .hamburger {
       > div {

@@ -7,12 +7,10 @@
     @include breakpoint(sm-tablet) {
       display: grid;
       grid-template-columns: 65% 35%;
-      grid-template-areas: 
-        "introText logo";
+      grid-template-areas: "introText logo";
+      padding-bottom: 0;
     }
-    @include breakpoint(sm-desktop) {
-padding-bottom: 0;
-    }
+
     img {
       display: block;
       width: 80%;
@@ -29,7 +27,7 @@ padding-bottom: 0;
       text-align: center;
       grid-area: introText;
       align-items: center;
-      
+
       @include breakpoint(sm-tablet) {
         font-size: 1.6em;
       }
@@ -47,7 +45,6 @@ padding-bottom: 0;
     }
     #img-anim {
       // transform: translateY(500px);
-      
     }
     .links {
       padding: 0.5em 2em;
@@ -66,7 +63,7 @@ padding-bottom: 0;
         margin: 1em auto;
         padding: 0.6em;
 
-          opacity: 0;
+        opacity: 0;
         border-radius: 0.5em;
         //   clip-path: polygon(
         //       0% 10px,
@@ -98,29 +95,25 @@ padding-bottom: 0;
       }
     }
   }
-  
+
   #group3 {
     @include breakpoint(sm-desktop) {
       display: grid;
-      grid-template-areas: 
-      "card card"
-        "middleImage bottomImage"
-        ;
-        grid-template-columns: 1fr 1fr;
-        grid-column-gap: 2em;
-        #middle-img {
-          grid-area: middleImage;
-          overflow: hidden;
-          height: 100%;
-          width: auto;
+      grid-template-areas:
+        "card card"
+        "middleImage bottomImage";
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 2em;
+      #middle-img {
+        grid-area: middleImage;
 
-        }
-        #bottom-img {
-          grid-area: bottomImage;
+      }
+      #bottom-img {
+        grid-area: bottomImage;
 
-        }
+      }
     }
-    
+
     .card {
       margin: 1em;
       padding: 1em 1em 0.2em;
@@ -137,7 +130,6 @@ padding-bottom: 0;
       }
       @include breakpoint(lrg-tablet) {
         columns: 3;
-
       }
       p {
         margin-bottom: 1em;
@@ -148,20 +140,19 @@ padding-bottom: 0;
         }
       }
     }
-    
   }
   .img-container {
-      width: 100%;
-      padding: 1em;
-      box-sizing: border-box;
-      
-      @include breakpoint(sm-tablet) {
-        padding: 2.5em;
-      }
-      img {
-        width: 100%;
-        height: auto;
-        margin: auto;
-      }
+    width: 100%;
+    padding: 1em;
+    box-sizing: border-box;
+
+    @include breakpoint(sm-tablet) {
+      padding: 2.5em;
     }
+    img {
+      width: 100%;
+      height: auto;
+      margin: auto;
+    }
+  }
 }
